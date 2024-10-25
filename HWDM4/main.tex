@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage{centernot}
+\usepackage{booktabs}
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+
+\let\emptyset\varnothing
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{Дискра ДЗ №4}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+
+
+\textsf{\textbf{1.}}
+\begin{quote}
+$2^{10}$ имеет 11 делителей: $1,  2  , ... , 2^{10}$
+
+$3^{5}$ имеет 6 делителей: $1,  3  , ..., 3^{5}$
+
+$5^{3}$ имеет 4 делителя: $1,  5  , ..., 5^{3}$
+
+Получается, что 'составить' делитель числа $2^{10} \cdot 3^5 \cdot 5^3$ мы можем $11 \cdot 6 \cdot 4 = 264$ различными способами.
+\boxed{\text{Ответ: 264}}
+\end{quote}
+
+\textsf{\textbf{2.}}
+\begin{quote}
+$a = 2k, \ k \centernot\vdots 2$, т.к. $a \centernot \vdots 4$
+
+Все делители $k$ - нечетные. Назовем их $d_1, d_2,...,d_n$.
+
+Тогда все нечетные делители $a$ - это $d_1, d_2, ... d_n$
+
+А все четные  - это $2d_1, 2d_2, ... 2d_n$. Т.е. $a$ имеет $n$ четных и $n$ нечетных делителей. ЧТД.
+\end{quote}
+
+\textsf{\textbf{3.}}
+\begin{quote}
+$(p^2 - 1) = (p + 1)(p - 1)$
+
+Если $p$ - простое и больше трех, то оно нечетное. Значит $(p + 1), (p - 1)$ - четные, причем идущие подряд. Значит одно из них точно кратно четырем (*). 
+
+Т.е. их произведение кратно восьми. 
+
+$p$ не м.б. кратно трем, т.к. простое.
+
+Пусть $p \mod 3 \equiv 1$. Значит $p - 1 \mod 3 \equiv 0$. Т.е. $(p - 1) \ \vdots \ 3$
+
+Пусть $p \mod 3 \equiv 2$. Значит $p + 1 \mod 3 \equiv 0$. Т.е. $(p + 1) \ \vdots \ 3$
+
+Получаем, что произведение чисел кратно 8 и одно из чисел кратно 3. Значит произведение кратно 24. ЧТД. \\
+
+Док-во (*): 
+
+($p + 1$ и $p - 1$ - четные)
+
+Предположим, 
+$(p + 1) \ \centernot\vdots 4 \Longleftrightarrow$ $\frac{p + 1}{2} \mod 2 \equiv 1
+\Longleftrightarrow \frac{p + 1}{2} - 1 \mod 2 \equiv 0 \Longleftrightarrow \frac{p - 1}{2} \mod 2 \equiv 0$
+
+Иными словами, если $p + 1$, не кратно четырем, то $p - 1$ - кратно.
+
+Аналогично доказывается, если $(p - 1) \ \centernot\vdots 4$.
+\end{quote}
+
+\textbf{\textsf{4.}}
+\begin{quote}
+НОД числителя и знаменателя равен одному: $(n^2 - n + 1, n ^ 2 + 1) = (n^2 - n + 1, n) = (1, n)$ 
+, т.е. общих делителей, кроме единицы, у числ. и знам. нет, т.е.  дробь несократима. ЧТД.
+\end{quote}
+
+\textbf{\textsf{5.}}
+\begin{quote}
+$(19, 22) = (19, 3) = (1, 3) = 1$
+
+$1 = 19 - 6 \cdot 3 =  19 - 6 \cdot (22 - 19) = 7 \cdot 19 - 6 \cdot 22$
+
+
+\begin{center}
+
+$19x + 22y = -21(7 \cdot 19 - 6 \cdot 22)$
+
+$19x + 22y = 126 \cdot 22 - 147 \cdot 19$
+
+$19(x + 147) = -22 (y - 126)$
+
+
+$\begin{cases}
+    x + 147 = -22k \\
+    y - 126 = 19k \\
+k \in \mathbb{Z}
+\end{cases}\Leftrightarrow$
+$\begin{cases}
+    x = -22k - 147 \\
+    y  = 19k + 126 \\
+k \in \mathbb{Z}
+\end{cases}$
+\end{center}
+\boxed{\text{Ответ: $x = -22k - 147, y = 19k + 126$ ($k \in \mathbb{Z}$)}}
+\end{quote}
+
+\textbf{\textsf{6.}}
+\begin{quote}
+$(b, c) = 1 \Leftrightarrow bx + cy = 1 \quad (x, y \in \mathbb{Z})$
+
+$ad(bx + cy) = ad \quad (a, d \in \mathbb{Z})$
+
+$ac(dy) + b(xad) = ad$
+
+$ac(dy) + 2b(xad) = ad + b(xad)$
+
+$ac(dy) + 2b(xad) = ad + b(xad)$
+
+$\underbrace{ac(dy) + b(2xad)}_{=(ac, b)} = \underbrace{a(d) + b(xad)}_{=(a, b)}$
+
+$(b, c) = 1$ \Longleftrightarrow
+$\begin{cases}
+    ac(dy) + b(2xad) = u \\
+    a(d) + b(xad) = u 
+\end{cases}$
+
+
+ЧТД.
+\end{quote}
+
+\textbf{\textsf{7.}}
+\begin{quote}
+    Докажем методом мат.индукции.
+
+    База: 8 = 5 + 3, т.е. 8 тугриков представить можно.
+    
+    Пусть сумму = k можно представить монетами по 3 и по 5 тугриков.
+    
+    Докажем, что можно представить сумму = k + 1:
+
+    
+    Если у нас есть хотя бы одна монета в 5 тугриков, то мы можем заменить монету в 5 тугриков на две монеты по 3 тугрика и получить сумму = k + 1.
+
+    Если монеты в 5 тугриков нет, то у нас есть хотя бы три монеты в 3 тугрика, т.к. меньшим числом монет по 3 тугрика мы не сможем собрать сумму $\geq 8$ монет (по условию задачи, нам надо минимум 8). 
+    
+    
+    Мы можем заменить их на две монеты по 5 тугриков и получить сумму = k + 1.
+
+    Переход доказан. ЧТД.
+
+\end{quote}
+
+\end{document}

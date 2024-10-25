@@ -1,0 +1,337 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{ЛинАл ДЗ №2}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+\textsf{\textbf{(1)}}
+
+\begin{quote}
+
+Пусть $v_1 = \begin{pmatrix} a_1 \\ b_1 \end{pmatrix}, v_2 \begin{pmatrix} a_2 \\ b_2
+\end{pmatrix}, v_3 = \begin{pmatrix} a_3 \\ b_3 \end{pmatrix}$
+
+$\alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 = 0$
+
+
+
+Составим систему:
+    \begin{cases}
+        $\alpha_1 \cdot a_1 + \alpha_2 \cdot a_2 + \alpha_3 \cdot a_3 = 0$\\
+        $\alpha_1 \cdot b_1 + \alpha_2 \cdot b_2 + \alpha_3 \cdot b_3 = 0$\\
+    \end{cases}
+
+    $\begin{pmatrix}
+        a_1 & a_2 & a_3 & | & 0 \\
+        b_1 & b_2 & b_3 & | & 0 \\
+    \end{pmatrix}
+    \Leftrightarrow
+    \begin{pmatrix}
+        a_1 & a_2 & a_3 & | & 0 \\
+        0 & b_2 - a_2 \frac{b_1}{a_1}& b_3 - a_3 \frac{b_1}{a_1}& | & 0 \\
+    \end{pmatrix}
+    $
+
+    $\alpha_2 \frac{-a_2 b_1 + a_1 b_2}{a_1} = \alpha_3 \frac{a_3 b_1 - a_1 b_3}{a_1}$
+    
+    $\alpha_2 \frac{-a_2 b_1 + a_1 b_2}{a_1} = \alpha_3 \frac{a_3 b_1 - a_1 b_3}{a_1}$
+    
+    $\alpha_2 = \frac{-a_3b_1 + a_1b_3}{a_2b_1 - a_1b_2} \alpha_3$
+    
+    $\alpha_1 a_1 = -a_2 \alpha_2 - a_3 \alpha_3 = (\frac{-a_3b_1 + a_1b_3}{a_2b_1 - a_1b_2} \alpha 3) - a_3\alpha_3$
+
+    $\alpha_1 = \frac{a_3b_2 - a_2b_3}{a_2b_1 - a_1b_2} \alpha 3$
+
+
+    Если бы $a_1$ было равно нулю, то мы бы поменяли строчки местами и деление было бы на $b_1$.
+    
+    Если бы и $b_1$ было равно нулю, первый вектор был бы нулевым, т.е. вектора были бы ЛЗ (док-во в другом номере)
+
+    Если бы $a_2b_1 - a_1b_2$ было равно нулю, это бы означало $\frac{a_2}{b_2} = \frac{a_1}{b_1} = k \frac{a_2}{b_2}$. То есть линейную зависимость ($v_1 - \frac{a_1}{a_2} v_2 = 0$) двух векторов, т.е. все вектора были
+    бы ЛЗ (док-во в другом номере)
+    
+    Если бы $a_3b_2 - a_2b_3$ было равно нулю, это бы означало $\frac{a_3}{b_3} = \frac{a_2}{b_2}$. То есть линейную зависимость двух векторов, т.е. все вектора были
+    бы ЛЗ (док-во в другом номере). 
+    
+    Аналогичные рассуждения можно провести про другие варианты числителя, которые встречались по ходу решения.\\
+
+    Таким образом, либо исходные вектора уже были ЛЗ, либо можно найти ненулевые $\alpha_1, \alpha_2, \alpha_3$, т.е. доказать, что вектора ЛЗ.
+    
+    Значит в $\mathbb{R}^2$ трех линейно независимых векторов быть не может.
+    \boxed{\text{Ответ: нет}}
+\end{quote}
+
+\textsf{\textbf{(2)}}
+\begin{quote}
+    \textbf{(a)} Составим систему:
+    \begin{cases}
+        $\alpha_1 \cdot 2 + \alpha_2 \cdot 3 + \alpha_3 \cdot 1 = 0$\\
+        $\alpha_1 \cdot -3 + \alpha_2 \cdot -1 + \alpha_3 \cdot -4 = 0$\\
+        $\alpha_1 \cdot 1 \cdot \alpha_2 \cdot 5 + \alpha_3 \cdot 3 = 0$\\
+    \end{cases}
+    
+    $
+    \begin{pmatrix}
+        2 & 3 & 1 & | & 0 \\
+        -3 & -1 & -4 & | & 0 \\
+        1 & 5 & 3 & | & 0 \\
+    \end{pmatrix}
+    \Leftrightarrow
+     \begin{pmatrix}
+        1 & 5 & 3 & | & 0 \\
+        -3 & -1 & -4 & | & 0 \\
+        2 & 3 & 1 & | & 0 \\
+    \end{pmatrix}
+        \Leftrightarrow
+     \begin{pmatrix}
+        1 & 5 & 3 & | & 0 \\
+        -3 & -1 & -4 & | & 0 \\
+        0 & -7 & -5 & | & 0 \\
+    \end{pmatrix}
+        \Leftrightarrow
+    \begin{pmatrix}
+        1 & 5 & 3 & | & 0 \\
+        0 & 14 & 5 & | & 0 \\
+        0 & -7 & -5 & | & 0 \\
+    \end{pmatrix}
+            \Leftrightarrow \quad
+            \Leftrightarrow
+    \begin{pmatrix}
+        1 & 5 & 3 & | & 0 \\
+        0 & -7 & -5 & | & 0 \\
+        0 & 14 & 5 & | & 0 \\
+    \end{pmatrix}
+                \Leftrightarrow
+    \begin{pmatrix}
+        1 & 5 & 3 & | & 0 \\
+        0 & -7 & -5 & | & 0 \\
+        0 & 0 & -5 & | & 0 \\
+    \end{pmatrix}
+    $
+
+    Система имеет единственное решение $\alpha_1 = \alpha_2 = \alpha_3 = 0$. Значит вектора \boxed{\text{линейно независимы}}.
+\end{quote}
+
+\begin{quote}
+    \textbf{(b)}
+    Составим систему:
+    $
+    \begin{cases}
+        5\alpha_1 + 3\alpha_2 + 8\alpha_3 = 0 \\
+        4\alpha_1 + 3\alpha_2 + 1\alpha_3 = 0 \\
+        3\alpha_1 + 2\alpha_2 + 3\alpha_3 = 0 \\
+    \end{cases}
+    $
+    
+    $
+    \begin{pmatrix}
+        5 & 3 & 8 & | & 0 \\
+        4 & 3 & 1 & | & 0 \\
+        3 & 2 & 3 & | & 0 \\
+    \end{pmatrix} \Leftrightarrow
+    \begin{pmatrix}
+        5 & 3 & 8 & | & 0 \\
+        0 & \frac{3}{5} & \frac{-27}{5} & | & 0 \\
+        3 & 2 & 3 & | & 0 \\
+    \end{pmatrix} \Leftrightarrow
+    \begin{pmatrix}
+        5 & 3 & 8 & | & 0 \\
+        0 & \frac{3}{5} & \frac{-27}{5} & | & 0 \\
+        0 & \frac{1}{5} & \frac{-9}{5} & | & 0 \\
+    \end{pmatrix} \Leftrightarrow
+     \begin{pmatrix}
+        5 & 3 & 8 & | & 0 \\
+        0 & \frac{3}{5} & \frac{-27}{5} & | & 0 \\
+        0 & 0 & 0 & | & 0 \\
+    \end{pmatrix} 
+    $
+    
+Получается, $\alpha_3 - \text{любое,} \quad \alpha_2 = \frac{27}{5}\alpha_3 \cdot \frac{5}{3} = 9\alpha_3, \quad \alpha_1 =\frac{-8 \alpha_3 - 3 \cdot 9 \alpha_3}{5} = -7\alpha_3$
+
+Получаем зависимость \boxed{$-7\text{a}_1 + 9\text{a}_2 + \text{a}_3 = 0$}
+\end{quote}
+
+\textbf{\textsf{(3)}}
+\begin{quote}
+   \textbf{(a)} Пусть $\text{v}_i$ - нулевой, $k \not= 0$, тогда верно $0 \cdot \text{v}_1 + 0 \cdot \text{v}_2 + ... 
+   + k \cdot \text{v}_i + ... + 0 \cdot \text{v}_n = 0$
+
+   То, есть вектора ЛЗ по определению. ЧТД.
+
+   \textbf{(b)} Если $k$ векторов ЛЗ, то $\alpha_1 \cdot \text{v}_1 + \alpha_2 \cdot \text{v}_2 + ... 
+   + \alpha_k \cdot \text{v}_k = 0$, где какой-то $\alpha_j \not = 0$
+
+   Получается
+   $\underbrace{\alpha_1 \cdot \text{v}_1 + \alpha_2 \cdot \text{v}_2 + ... 
+   + \alpha_k \cdot \text{v}_k}_{= 0, \quad \exists \alpha_j \not = 0} + ... + \alpha_n \cdot \text{v}_n = 0$
+
+   Равенство точно будет выполнятся при $\alpha_{k + 1}, \alpha_{k + 2} , ... ,\alpha_n = 0$. При этом, у нас по прежнему есть $a_j \not = 0$.
+   Т.е. вектора ЛЗ по определению. ЧТД.
+
+
+\end{quote}
+
+\textbf{\textsf{(4)}}
+\begin{quote}
+    (1) $\alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 = 0$, не все $\alpha = 0$
+    
+    (2) $v_3 \not = \beta_1 v_1 + \beta_2 v_2$
+    
+    Предположим $\alpha_3 \not = 0$, тогда: $v_3 = \frac{-\alpha_1}{\alpha_3}v_1 + \frac{-\alpha_2}{\alpha_3}v_2$.
+    Но это противоричит (2). 
+    
+    Значит $\alpha_3 = 0$, тогда (1) принимает вид $\alpha_1 v_1 + \alpha_2 v_2 = 0 \Leftrightarrow $
+    
+    $
+    \left[\begin{gathered}
+    v_1 = \frac{-\alpha_2}{\alpha_1} v_2 \quad , \ \alpha_1 \not = 0 \\
+    v_2 = \frac{-\alpha_1}{\alpha_2} v_1 \quad , \ \alpha_2 \not = 0
+    \end{gathered}
+    \right. 
+    $ 
+
+    Если $\alpha_2 = \alpha_1 = 0$, то это противоречит (1)
+    
+    Т.е. $v_1$ и $v_2$ пропорциональны. ЧТД. 
+    
+\end{quote}
+
+\textbf{\textsf{(5)}}
+\begin{quote}
+    \textbf{(a)} Составим уравнение:
+    $\alpha_1 + \alpha_2 sin(x) + \alpha_3 cos(x) = 0$ (для любых $x$)
+
+    Для $x = \frac{\pi}{2}$: $\alpha_1 + \alpha_2 = 0$
+    
+    Для $x = 0$: $\alpha_1 + \alpha_3 = 0$ 
+    
+    Для $x = \pi$: $\alpha_1 - \alpha_3 = 0$
+
+    $\begin{cases}
+        \alpha_1 + \alpha_2 = 0 \\
+        \alpha_1 + \alpha_3 = 0 \\
+        \alpha_1 - \alpha_3 = 0 \\
+    \end{cases}$
+    
+    Единственным решением системы является $\alpha_1 = \alpha_2 = \alpha_3 = 0$
+    
+    Если уже для определенных $x$ это единственное решение, то для всех оно тоже будет единственным.
+    Т.е. \boxed{\text{вектора ЛН}}
+
+    
+    \textbf{(b)} Составим уравнение:
+    $\alpha_1 sin(x) + \alpha_2 sin(2x) + \alpha_3 sin(3x) = 0$ (для любых $x$)
+    
+    (1) Для $x = \frac{\pi}{2}$: $\alpha_1 - \alpha_3 = 0$
+    
+    (2) Для $x = \frac{\pi}{6}$: $\frac{\alpha_1}{2} + \frac{\sqrt{3}\alpha_2}{2} + \alpha_3 = 0$
+    
+    (3) Для $x = \frac{\pi}{4}$: $\frac{\sqrt{2}\alpha_1}{2} + \alpha_2 + \frac{\sqrt{2}\alpha_3}{2}  = 0$
+
+    Из (1): $\alpha_1 = \alpha_3$. 
+    
+    Подставим в (2): $\frac{3}{2}\alpha_1 + \frac{\sqrt{3}}{2}\alpha_2 = 0 \Leftrightarrow 
+    \alpha_1 = -\frac{\sqrt{3}}{3} \alpha_2$
+
+   Подставим в (3): $-\frac{\sqrt{6}}{6}\alpha_2 + \alpha_2 -\frac{\sqrt{6}}{6}\alpha_2 = 0 \Leftrightarrow \alpha_2 = 0 \Leftrightarrow \alpha_1 = \alpha_3 = 0$
+   
+   Единственным решением системы является $\alpha_1 = \alpha_2 = \alpha_3 = 0$, \boxed{\text{т.е. вектора ЛН}}
+
+    \textbf{(c)} Составим уравнение:
+    
+    $\alpha_1+ \alpha_2 sin(x) + \alpha_3 cos(x) + \alpha_4 sin^2(x) + \alpha_5 cos^2(x) = 0$ (для любых $x$)
+
+   $\alpha_1+ \alpha_2 sin(x) + \alpha_3 cos(x) + \alpha_4 - \alpha_4 cos^2(x) + \alpha_5 cos^2(x) = 0$
+
+   $\alpha_1+ \alpha_2 sin(x) + \alpha_3 cos(x) + \alpha_4 + cos^2(x)(\alpha_5 - \alpha_4) = 0$
+
+   Возьмем $\alpha_2 = \alpha_3 = 0, \quad  \alpha_1 = -\alpha_4, \quad \alpha_5 = \alpha_4$:
+
+   $-\alpha_4 + 0 + 0 + \alpha_4 + cos^2(x)(\alpha_4 - \alpha_4) = 0$ - верно для любых $x$
+
+   Получается, уравнение имеет решение $\begin{pmatrix} -\alpha_4 \\ 0 \\ 0 \\ \alpha_4 \\ \alpha_4\end{pmatrix}$ при любом $\alpha_4$. Значит \boxed{\text{вектора ЛЗ}}.
+\end{quote}
+
+\textbf{\textsf{(6)}}
+\begin{quote}
+    Найдем решения
+    $a_1 p_1(x) + a_2 p_2(x) + a_3 p_3(x) + a_4 p_4(x) + a_5 p_5(x) = 0$
+    
+   Составим систему уравнений: 
+   $
+   \begin{cases}
+       a_1 \cdot 0 + a_2 \cdot 3 + a_3 \cdot 0 + a_4 \cdot 0 + a_5 \cdot 3 = 0 \\
+       a_1 \cdot 2 + a_2 \cdot -2 + a_3 \cdot 4 + a_4 \cdot 2 + a_5 \cdot 0 = 0 \\
+       a_1 \cdot -1 + a_2 \cdot 1 + a_3 \cdot -1 + a_4 \cdot 1 + a_5 \cdot -3 = 0 \\
+       a_1 \cdot 3 + a_2 \cdot 4 + a_3 \cdot 4 + a_4 \cdot -1 + a_5 \cdot 9 = 0 \\
+   \end{cases}
+   $
+
+   $
+   \begin{pmatrix}
+       0 & 3 & 0 & 0 & 3 & | & 0 \\
+       2 & -2 & 4 & 2 & 0 & | & 0 \\
+       -1 & 1 & -1 & 1 & -3 & | & 0 \\
+       3 & 4 & 4 & -1 & 9 & | & 0 \\
+   \end{pmatrix}
+   \Leftrightarrow
+   \begin{pmatrix}
+       2 & -2 & 4 & 2 & 0 & | & 0 \\
+       0 & 3 & 0 & 0 & 3 & | & 0 \\
+       -1 & 1 & -1 & 1 & -3 & | & 0 \\
+       3 & 4 & 4 & -1 & 9 & | & 0 \\
+   \end{pmatrix}
+      \Leftrightarrow
+   \begin{pmatrix}
+       2 & -2 & 4 & 2 & 0 & | & 0 \\
+       0 & 3 & 0 & 0 & 3 & | & 0 \\
+       0 & 0 & 1 & 2 & -3 & | & 0 \\
+       3 & 4 & 4 & -1 & 9 & | & 0 \\
+   \end{pmatrix}
+   \Leftrightarrow
+   $
+
+   $
+   \begin{pmatrix}
+       2 & -2 & 4 & 2 & 0 & | & 0 \\
+       0 & 3 & 0 & 0 & 3 & | & 0 \\
+       0 & 0 & 1 & 2 & -3 & | & 0 \\
+       0 & 7 & -2 & -4 & 9 & | & 0 \\
+   \end{pmatrix}
+   \Leftrightarrow
+      \begin{pmatrix}
+       2 & -2 & 4 & 2 & 0 & | & 0 \\
+       0 & 3 & 0 & 0 & 3 & | & 0 \\
+       0 & 0 & 1 & 2 & -3 & | & 0 \\
+       0 & 0 & -2 & -4 & 2 & | & 0 \\
+   \end{pmatrix}
+   \Leftrightarrow
+         \begin{pmatrix}
+       2 & -2 & 4 & 2 & 0 & | & 0 \\
+       0 & 3 & 0 & 0 & 3 & | & 0 \\
+       0 & 0 & 1 & 2 & -3 & | & 0 \\
+       0 & 0 & 0 & 0 & -4 & | & 0 \\
+   \end{pmatrix}
+   $
+
+   Получается, $a_5 = 0$, \ $a_2 = \frac{-3}{3} \cdot a_5 = 0, \ a_3 = -2 x_4, \ a_1 = \frac{2a_2 -4a_3 - 2a_4}{2} = 3 a_4$.
+   
+    Общее решение: $X = a_4 \begin{pmatrix} 3 \\ 0 \\ -2 \\ 1 \\ 0 \end{pmatrix}$
+
+    Получается зависимость: $\boxed{3 \cdot p_1(x) + 0 \cdot p_2(x) + -2 \cdot p_3(x) + 1 \cdot p_4(x) + 0 \cdot p_5(x) = 0}$
+\end{quote}
+\end{document}

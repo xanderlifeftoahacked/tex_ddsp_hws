@@ -1,0 +1,236 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage{centernot}
+\usepackage{booktabs}
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+
+\let\emptyset\varnothing
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{Дискра ДЗ №5}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+
+
+\textsf{\textbf{1.}}
+\begin{quote}
+
+Две последние цифры числа есть остаток от деления числа на сто.
+
+$-1 = 100 \cdot -1 + 99$
+
+$99 = 100 \cdot 0 + 99$
+
+$99 \equiv -1 \mod{100}$
+
+$99^{1000} \equiv (-1)^{1000} \mod{100}$
+
+$99^{1000} \equiv 1 \mod{100}$
+
+\boxed{\text{Т.е. последние две цифры числа - 01}}
+\end{quote}
+
+\textbf{\textsf{2.}}
+\begin{quote}
+    
+    $53 \cdot x \equiv 1 \mod 42 \quad x \in \mathbb{Z}$
+
+    $53 \cdot x - 1 \equiv 0 \mod 42$
+
+    Надо решить уравнение:
+    
+    $53x - 1 = 42y, \quad y, x \in \mathbb{Z}$
+
+    $53x - 42y = 1$
+
+    Воспользуемся расширенным алгоритмом Евклида:
+    
+    $(53, -42) = (53, 42) = (11, 42) = (11, 9) = (9, 2) = (1, 2)$
+    
+    $ 1 = 9 - 4\cdot 2 = 9 - 4\cdot (11 - 9) = 5 \cdot 9 - 4 \cdot 11 = 5 \cdot (42 - 3 \cdot 11) - 4\cdot 11 = 5 \cdot 42 - 19 \cdot 11 = 5 \cdot 42 - 19 \cdot (53 - 42) = \mathbf{24 \cdot 42 - 19 \cdot 53}$
+    
+    $53x - 42y = 42 \cdot 24 - 53 \cdot 19$
+    
+    $53(x + 19)= 42(y + 24)$
+    
+    $53(x + 19)= 42(y + 24)$
+
+    Нам достаточно одного решения, например, $x = -19$
+
+    $53 \cdot -19 \equiv 1 \mod {42}$
+
+    \boxed{\text{Ответ: -19}}
+    
+\end{quote}
+
+\textbf{\textsf{3.}}
+\begin{quote}
+    (a) По расш. алг. Евклида: $(e, m) = 1 = de + bm \ , \ d,b \in \mathbb{Z} \Longleftrightarrow de - 1 = (-b)m \Longleftrightarrow de \equiv 1 \mod m \qquad $
+
+    Т.е. $d$ всегда можно найти, решив Диофантово ур. (не полным перебором) ЧТД.
+
+    (b) $(?) P' = P = C^d \mod n$
+    
+    $n = pq$, $p$ и $q$ - простые.
+
+    $ed \equiv 1 \mod (p-1)(q-1) \Leftrightarrow ed - 1 = h(p - 1) = k(q - 1) \quad h, k \in \mathbf{N}$
+
+    $C = P^e \mod pq \Longleftrightarrow P' = C^d = P^{ed} \mod pq$
+
+    Т.е. надо доказать что (1) $P^{ed} \equiv P \mod p$ и (2) $P^{ed} \equiv P \mod q$
+
+    (1) Если $P$ делится на $p$, тогда $P^{ed}$ тоже делится $p$. Т.е. $P^{ed} \equiv 0 \equiv P \mod p$
+
+     Если не делится, то:
+    \begin{quote}
+        $P^{ed} = P \cdot P^{ed - 1} = \underbrace{(P^{p -1})^h \cdot P \equiv 1^h \cdot P}_{\text{По м. т. Ферма}} \equiv P \mod p$
+    \end{quote}
+
+    (2) Доказывается абсолютно аналогично ($q$ вместо $p$)
+
+    ЧТД.
+   
+\end{quote}
+
+\textbf{\textsf{4.}}
+\begin{quote}
+$a_n = n^2 + 3n + 1$
+
+Если кратно 55, то кратно 11 и 5:
+
+$
+\begin{cases}
+n^2 + 3n + 1 \equiv 0 \equiv 11n \mod{11}\\
+n^2 + 3n + 1 \equiv 0 \equiv 5n \mod{5}\\
+\end{cases} \Leftrightarrow
+\begin{cases}
+n^2 -8n + 1 \equiv 0 \mod{11}\\
+n^2 - 2n + 1 \equiv 0 \mod{5}\\
+\end{cases}  \Leftrightarrow
+\begin{cases}
+(n - 6)(n - 2) \equiv 0 \mod{11}\\
+(n - 1)^2 \equiv 0 \mod{5}\\
+\end{cases}
+$
+
+5 - простое. Значит, если на него делится $(n - 1)^2$, то и $(n - 1)$ делится.
+
+Рассмотрим случаи, когда $(n - 6) \ \vdots \ 11$ и когда $(n - 2) \ \vdots \ 11$
+
+$(k, m, p \in \mathbb{Z})$
+
+\textbf{(1)}: 
+
+$
+\begin{cases}
+n - 6 = 11k \quad (1) \\
+n - 1 \equiv 0 \mod 5 \quad (2)
+\end{cases}
+$
+
+Подставим (1) в (2): $11 k + 5 \equiv 0 \mod{5} \Longleftrightarrow 11k \equiv 0 \mod{5} \Longleftrightarrow k = 5m$
+
+Подставим обратно в (1): $n = 55m + 6$
+
+
+\textbf{(2)}:
+
+$
+\begin{cases}
+n - 2 \equiv 0 \mod{11} \quad (1) \\
+n - 1 = 5k \quad (2)
+\end{cases}
+$
+
+Подставим (2) в (1): $5k - 1 \equiv 0 \mod{11} \Longleftrightarrow 5k \equiv 1 \equiv 45 \mod{11} \Longleftrightarrow k = 9 + 11p$
+
+Подставим обратно в (1): $n = 5(9 + 11p) + 1 = 45 + 55p + 1 = 55p + 46$
+
+\boxed{\text{Ответ: n = 55m + 6 или n = 55p + 46}}
+\end{quote}
+
+\textbf{\textsf{5.}}
+\begin{quote}
+Сумма чисел $a^{10} + ... + f^{10}$ м.б. кратна 11, если сумма остатков от деления слагаемых на 11 кратна 11. М. т. Ферма: $x^{n-1} \equiv 1 \mod n$ если $x$ не кратно $n$, $n$ - простое. Пусть как минимум одно из $a ... f$ не кратно 11. Тогда сумма их остатков не кратна 11 (она от 1 до 6, исходя из т. Ферма т.к. 11 - простое). Значит, все числа должны быть кратны 11. Значит, их произведение кратно $11^6$. ЧТД.
+\end{quote}
+
+\textbf{\textsf{6.}}
+\begin{quote}
+Рассмотрим остатки от деления степеней тройки на 46:
+
+\begin{center}
+    $3^1: 3\\$
+    $3^2: 9\\$
+    $3^3: 27\\$
+    $3^4: 35\\$
+    $3^5: 13\\$
+    $3^6: 39\\$
+    $3^7: 25\\$
+    $3^8: 29\\$
+    $3^9: 41\\$
+    $3^{10}: 31\\$
+    $3^{11}: 1\\$
+    $3^{12}: 3\\$
+    
+\end{center}
+
+Получается, остатки повторяются с периодом 11. Заметим, $^{2020} 3 = 3^{^{2019} 3}$
+
+Нам нужно найти остаток от деления $^{2019} 3$ на 11, чтобы сказать какой из 11 остатков является искомым.
+
+Рассмотрим остатки от деления степеней тройки на 11:
+
+\begin{center}
+    $3^1: 3\\$
+    $3^2: 9\\$
+    $3^3: 5\\$
+    $3^4: 4\\$
+    $3^5: 1\\$
+    $3^6: 3\\$
+\end{center}
+
+То есть, если $^{2019} 3 \mod 11 = 3$, то $^{2020} 3 \mod 46 = 27$ и т.д.
+
+Получается, остатки повторяются с периодом 5.  
+Т.к. $^{2020} 3 = 3^{3^{^{2018} 3}}$ По аналогии, смотрим остатки от деления степеней тройки на 5:
+\begin{center}
+    $3^1: 3\\$
+    $3^2: 4\\$
+    $3^3: 2\\$
+    $3^4: 1\\$
+    $3^5: 3\\$
+\end{center}
+
+То есть, если $^{2018} 3 \mod 5 = 3$, то $^{2019} 3 \mod 11 = 5 \Longrightarrow ^{2020} 3 \mod 46 = 13$ и т.д.
+Получается, остатки повторяются с периодом 4.
+
+Смотрим остатки от деления степеней тройки на 4:
+
+\begin{center}
+    $3^1: 3\\$
+    $3^2: 1\\$
+    $3^3: 3\\$
+\end{center}
+
+Они повторяются с периодом 2. Т.к. 3 - нечетное, $^{2017} 3 \mod 2 = 1$
+
+$^{2017} 3 \mod 2 = 1 \Longrightarrow ^{2018} 3 \mod 5 = 2 \Longrightarrow ^{2019} 3 \mod 11 = 9 \Longrightarrow ^{2020} 3 \mod 46 = 41$
+
+\boxed{\text{Ответ: 41.}}
+
+\end{quote}
+
+\end{document}

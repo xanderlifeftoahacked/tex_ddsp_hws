@@ -1,0 +1,15 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{mathtools}
+
+\begin{document}
+
+
+
+\[ \Vec{x}_{n+1} = \Vec{x}_{n} +  \Vec{v}_{n} \Delta t \]
+\[ \Vec{x}_{n+1} = \Vec{x}_{n} +  (\Vec{v}_{n-1} + \Vec{a}_{n} \Delta t)\Delta t \]
+\[ \Vec{x}_{n+1} = \Vec{x}_{n} +  \Vec{v}_{n-1}\Delta t + \Vec{a}_{n} \Delta t^2 \]
+\[ \Vec{x}_{n+1} = \Vec{x}_{n} +  \Vec{x}_{n} + \Vec{x}_{n-1} + \Vec{a}_{n} \Delta t^2 \]
+\[ \Vec{x}_{n+1} = 2\Vec{x}_{n} + \Vec{x}_{n-1} + \Vec{a}_{n} \Delta t^2 \]
+
+\end{document}

@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{МатАн ДЗ №2}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+
+\textsf{\textbf{(1)}}
+
+\begin{quote}
+   Пусть $\{x_n\}$ является ограниченной, т.е.:
+   $
+   \exists C_0 \forall n: |x_{n}| < C_0 \Leftrightarrow \exists C_0 \forall n: -C_0 < x_{n} < C_0
+   $, иными словами: 
+   \begin{cases}
+   $C_1 = C_0, \ \forall n: x_n < C_1$ - т.е. послед. ограничена сверху\\ 
+   $C_2 = -C_0, \ \forall n: x_n > C_2$ - т.е. послед ограничена снизу \\ 
+   \end{cases}
+   
+   Теперь докажем в обратную сторону. Пусть система ограничена сверху и снизу:
+   \begin{cases}
+   $\exists C_1, \ \forall n: x_n < C_1$ \\ 
+   $\exists C_2, \ \forall n: x_n > C_2$ \\ 
+   \end{cases} \Longrightarrow $ \ C_0 = max(|C_1|, |C_2|), \ \forall n: x_n < |C_0|$. 
+   
+   Т.е. послед. ограничена. ЧТД.
+   
+\end{quote}
+
+
+\textsf{\textbf{(2)}}
+
+\begin{quote}
+    
+(a) $\{a , a , a ,  ...\}$
+
+(b) $a_n = \frac{1}{n} + a$
+
+(c) Если $n$ - четное: $a_n = a$, если нечетное: $a_n = \frac{1}{n} + a$
+
+(d) $\{0, a, 0, a, 0, a, 0, ...\}$
+
+\end{quote}
+
+\textsf{\textbf{(3)}}
+
+\begin{quote}
+Если $x$ - предел \{$x_n$\}, значит (по определению) в любой окрестности $x$ содержатся почти все члены $\{x_n\}$, т.е. все элементы за исключением
+их конечного числа. Если мы добавим в начало этой последовательности конечное число элементов, то в любой окрестности $x$ по-прежнему будут содержатся почти все элементы, значит $x$ по-прежнему будет пределом \{$x_n$\}. Аналогично с отбрасыванием конечного числа элементов.  
+\end{quote}
+
+\textsf{\textbf{(4)}}
+
+\begin{quote}
+Найдем такое $C$, что $\forall n \in \mathbb{N}: |\frac{1 - n}{\sqrt{n^2 + 1}}| < C$
+
+Т.к. $n$ - натуральное: $1 - n \leq 0, \ \sqrt{n^2 + 1} > 0$, т.е. подмодульное выр. всегда $\leq 0$, 
+
+Тогда: $\frac{n - 1}{\sqrt{n^2 + 1}} < C \Leftrightarrow 
+\frac{n^2 - 2n + 1}{n^2 + 1} < C^2 \Leftrightarrow n^2 - 2n + 1 - C^2 n^2 - C^2 < 0 \Leftrightarrow$
+
+$\Leftrightarrow n^2(1 - C^2) - 2n + (1 - C^2) < 0$
+
+Слева уравнение параболы. Нерав-о верно для $\forall n$, когда $f(x_{B}) < 0, \ (1 - C^2) < 0$:
+$
+\begin{cases}
+   \frac{2^2}{2^2(1 - C^2)^2}(1 - C^2) - 2\frac{2}{2(1 - C^2)} + (1 - C^2) < 0 \\
+   C^2 > 1
+\end{cases} \Longleftrightarrow
+\begin{cases}
+   \frac{1}{(1 - C^2)} - \frac{2}{(1 - C^2)} + (1 - C^2) < 0 \\
+   |C| > 1
+\end{cases}
+$ 
+
+Рассмотрим первое неравенство ($t = (1 - C^2), \ t < 0$):
+$\frac{1}{t} - \frac{2}{t} + t < 0 \Leftrightarrow t^2 - 1 > 0 \Leftrightarrow$
+
+$\Leftrightarrow (t - 1)(t + 1) > 0 \Leftrightarrow (1 - C^2 - 1)(1 - C^2 + 1) > 0 \Leftrightarrow -C^2
+(2 - C^2) > 0 \Leftrightarrow C^2 > 2$
+
+Т.е. нашу последовательность можно ограничить $C > \sqrt{2}$, например, $C = 2$. ЧТД
+
+\end{quote}
+
+
+\textsf{\textbf{(5)}}
+\begin{quote}
+   Если последовательность неограничена, то $\forall C \exists n: |a_n| \geq C$ 
+   
+   $a_n = \begin{cases}  \frac{1}{n} , n \ \vdots \ 2\\ n , n \ \not \vdots \ 2 \end{cases}$
+
+   Подпоследовательность с нечетными индексами неограничена (всегда можно взять $n = C + 1$ или $n = C + 2$). Значит 
+   вся последовательность неограничена. ЧТД.
+\end{quote}
+
+
+\textsf{\textbf{(6)}}
+\begin{quote}
+(a) 
+\begin{quote}
+   Из определения предела:
+   $\forall \varepsilon > 0 \ \exists N \ \forall n > N \ : \ |\frac{1}{\sqrt{3n - 11}} - 0| < \varepsilon$
+   
+    $\sqrt{3n - 11} > 0$ при натуральных $n$ $\Leftrightarrow $ дробь всегда положительна, тогда:
+    
+    $\frac{1}{\sqrt{3n - 11}} < \varepsilon \Longleftrightarrow
+    3n - 11 > \frac{1}{\varepsilon ^ 2} \Longleftrightarrow n > \frac{1}{3 \varepsilon ^ 2} + \frac{11}{3}$
+
+    Неравенство будет выполнятся для $\forall n > N$ при $N = \left\lceil{\frac{1}{3 \varepsilon ^ 2} + \frac{11}{3}}\right\rceil + 1$. Сходимость доказана.
+\end{quote}
+
+(b) 
+\begin{quote}
+   Из определения предела:
+   $\forall \varepsilon > 0 \ \exists N \ \forall n > N \ : \ |\frac{2n + 3}{n ^ 2} - 0| < \varepsilon$
+   
+    $n^2 > 0, \ 2n + 3 > 0$ при натуральных $n$, т.е. дробь всегда положительна, тогда:
+
+    $\frac{2n + 3}{n^2} < \varepsilon \Longleftrightarrow - \varepsilon n^2 + 2n + 3 < 0
+    \Longleftrightarrow \varepsilon n^2 - 2n - 3 > 0 \Longleftrightarrow $
+    
+    $\Longleftrightarrow (n - \frac{1 + \sqrt{1 + 3 \varepsilon}}{\varepsilon})(n - \frac{1 - \sqrt{1 + 3 \varepsilon}}{\varepsilon}) > 0
+    $
+
+    Неравенство будет выполнятся для $\forall n > N$ при $N = \left\lceil{\frac{1 + \sqrt{1 + 3 \varepsilon}}{\varepsilon}}\right\rceil + 1$ (берем больший корень, потому что при $n$, находящемся между корнями, неравенство не выполняется) . Сходимость доказана.
+\end{quote}
+
+(c) 
+\begin{quote}
+   Из определения предела:
+   $\forall \varepsilon > 0 \ \exists N \ \forall n > N \ : \ |\frac{\cos n}{\sqrt{n}} - 0| < \varepsilon$
+
+   
+   Косинус принимает значения от -1 до 1, значит дробь можем ограничить сверху так:
+   $
+    |\frac{\cos n}{\sqrt{n}}| \leq \frac{1}{\sqrt{n}}
+   $
+
+  $\frac{1}{\sqrt{n}} < \varepsilon \Longleftrightarrow n > \frac{1}{\varepsilon ^ 2}$ 
+  
+    Неравенство будет выполнятся для $\forall n > N$ при $N = \left\lceil{\frac{1}{\varepsilon ^ 2}}\right\rceil + 1$. Сходимость доказана.
+\end{quote}
+   
+\end{quote}
+
+\end{document}

@@ -1,0 +1,150 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage{booktabs}
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{Дискра ДЗ №1}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+\textsf{\textbf{1.}}
+\begin{quote}
+\leftskip=0.2cm    
+(a) $p \lor \neg q$ \quad
+(b) $q \land r \lor \neg(q \lor r)$ \quad
+(c) $\neg (p \lor q \lor r) \lor (\neg p \land \neg q \land r) \lor (p \land q \land \neg r)$ \\
+\end{quote}
+
+\textsf{\textbf{2.}}
+\begin{quote}
+\leftskip=0.2cm    
+1. Если ровно одно из чисел $x, y, z$ четное, значит 
+их сумма: 
+
+чет. + (нечет. + нечет.) = чет. + чет. = чет., т.е. $w$ - четное
+
+2. Если все числа $x, y, z$ четные, значит $w$ четное как сумма четных.
+
+Получается, что если одно из двух условий выполняется, то $w$ - четное.
+
+Иными словами, $A \equiv (B \lor C)$
+\end{quote}
+\textsf{\textbf{3.}}
+\begin{quote}
+\leftskip=0.2cm    
+(a) Построим таблицу истинности:
+
+\hspace{0.5cm}
+\begin{tabular}{ m m m m }
+    p & q & r & F(p, q, r) \\
+\hline
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 1 \\
+    0 & 1 & 0 & 0 \\
+    0 & 1 & 1 & 1 \\
+    1 & 0 & 0 & 1 \\
+    1 & 0 & 1 & 1 \\
+    1 & 1 & 0 & 1 \\
+    1 & 1 & 1 & 1 \\
+\end{tabular}
+
+Ответ: истинно всегда, кроме ($p = q = r = 0$) и ($p = r = 0, q = 1$) \\
+
+(b) $p_1 \rightarrow \underbrace{(p_2 \rightarrow \underbrace{(p_3 \rightarrow \underbrace{(p_4 \rightarrow p_5)}_{(3)}))}_{(2)}}_{(1)}$\\
+
+\hspace{0.5cm}
+Ложно только в случае, если $p_1 = 1, \ (1) = 0$.
+
+\hspace{0.5cm}
+(1) = 0 только в случае, если $p_2 = 1, \ (2) = 0$
+
+\hspace{0.5cm}
+(2) = 0 только в случае, если $p_3 = 1, \ (3) = 0$
+
+\hspace{0.5cm}
+(3) = 0 только в случае, если $p_4 = 1, \ p_5 = 0$
+
+Ответ: истинно всегда, кроме ($p_1 = p_2 = p_3 = p_4 = 1, \ p_5 = 0$).\\
+
+(c) Подставим $p = 1$: 
+
+\begin{center}
+    
+$(1 \land (q \rightarrow r)) \leftrightarrow 
+((1 \land q) \rightarrow (1 \land r))$
+
+$(q \rightarrow r) \leftrightarrow 
+(q \rightarrow r)$
+\end{center}
+
+\hspace{0.5cm}
+Является тавтологией. Подставим $p = 0$:
+\begin{center}
+    
+$(0 \land (q \rightarrow r)) \leftrightarrow 
+((0 \land q) \rightarrow (0 \land r))$
+
+$(0 \leftrightarrow (0 \rightarrow 0))$
+
+$(0 \leftrightarrow 1)$
+\end{center}
+
+\hspace{0.5cm}
+Высказывание ложно.
+
+ Ответ: истино при $p = 1$\\
+
+(d) Составим таблицу истинности:
+
+\hspace{0.5cm}
+\begin{tabular}{ m m m m }
+    p & q & r & F(p, q, r) \\
+\hline
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 1 \\
+0 & 1 & 0 & 1 \\
+0 & 1 & 1 & 1 \\
+1 & 0 & 0 & 1 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 1 \\
+1 & 1 & 1 & 1 \\
+\end{tabular}
+
+Ответ: является тавтологией \\
+
+\end{quote}
+
+\textsf{\textbf{4.}}
+\begin{quote}
+\leftskip=0.2cm    
+1. Пары могут пересекаться (Например, ЛРЛЛРЛ: 4 ответа "да" \ , \ 4 пары, каждый рыцарь входит в две пары)
+
+2. Правильным ответом будет 66 (решение ниже)
+
+Решение: если всего будет 100 лжецов, ответов "да" \ не будет. Если добавим рыцаря - ответов "да" \ 
+будет два. Если добавить рыцаря рядом с имеющимся рыцарем, ответов "да" \ останется столько же.
+Если поставить после лжеца (ЛРЛРЛ), то ответов "да" \ будет на два больше. И т. д. Мы максимизируем количество ответов "да" \ , поэтому будем ставить рыцарей таким образом.
+Получается, $N_{yes} = 2 * N_{knights}, $
+
+$N_{liars} = 100 - N_{knights} = 100 - N_{yes}/2, \ N_{liars} = N_{yes} = x$
+
+$x = 100 - \frac{x}{2} \Longleftrightarrow x = 66 \frac{2}{3}$
+
+Округляем вниз, т.к. кол-во лжецов - натуральное число. Получается лжецов было 66. Расположение получится, например, таким: ...ЛРРЛ ЛРЛРЛРЛРЛРЛРЛ ... ...ЛЛЛЛ...
+
+\end{quote}
+\end{document}

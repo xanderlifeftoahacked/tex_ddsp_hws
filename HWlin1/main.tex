@@ -1,0 +1,356 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{ЛинАл ДЗ №1}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+\\ \textsf{\textbf{(1)}}
+
+\hspace{1cm}(a)
+$
+\begin{pmatrix}
+1 & 5 & | & 7 \\
+-2 & -7 & | & -5 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & 5 & | & 7 \\
+    0 & 3 & | & 9 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & 5 & | & 7 \\
+    0 & 1 & | & 3 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & 0 & | & -8 \\
+    0 & 1 & | & 3 \\
+\end{pmatrix}
+$
+
+\begin{quote}
+\leftskip=0.15cm    
+\textbf{Ответ: $(-8, 3)$\\}
+
+\end{quote}
+\hspace{1cm}(b)
+$
+\begin{pmatrix}
+    0 & 1 & 4 & | & -5 \\
+    1 & 3 & 5 & | & -2 \\
+    3 & 7 & 7 & | & 6 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & 3 & 5 & | & -2 \\
+    3 & 7 & 7 & | & 6 \\
+    0 & 1 & 4 & | & -5 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & 3 & 5 & | & -2 \\
+    0 & -2 & -8 & | & 12 \\
+    0 & 1 & 4 & | & -5 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & 3 & 5 & | & -2 \\
+    0 & 1 & 4 & | & -6 \\
+    0 & 1 & 4 & | & -5 \\
+\end{pmatrix} 
+
+$
+
+\begin{quote}
+\leftskip=0.15cm
+Из второй и третьей строчки: $-5 = -6$.     
+
+\textbf{Ответ: $\emptyset$\\}
+
+\end{quote}%
+
+\hspace{1cm} (c)
+$
+\begin{pmatrix}
+    1 & -3 & 4 & | & -4 \\
+    3 & -7 & 7 & | & -8 \\
+    4 & 6 & -1 & | & 7 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & -3 & 4 & | & -4 \\
+    0 & 2 & -5 & | & 4 \\
+    4 & 6 & -1 & | & 7 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & -3 & 4 & | & -4 \\
+    0 & 2 & -5 & | & 4 \\
+    0 & 18 & -17 & | & 23 \\
+\end{pmatrix} \Longleftrightarrow
+
+\hspace{1cm} \Longleftrightarrow
+\begin{pmatrix}
+    1 & -3 & 4 & | & -4 \\
+    0 & 2 & -5 & | & 4 \\
+    0 & 0 & 28 & | & -13 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & -3 & 4 & | & -4 \\
+    0 & 1 & -\frac{5}{2} & | & 2 \\
+    0 & 0 & 1 & | & -\frac{13}{28} \\
+\end{pmatrix}
+$
+    
+\begin{quote}
+ 
+\leftskip=0.15cm
+Подставим $x_3$ во второе уравнение: $x_2 - \frac{5}{2} * -\frac{13}{28} = 2$ \Longleftrightarrow $x_2 = 2 - \frac{65}{56} = \frac{47}{56}$.
+Подставим $x_2$ и $x_3$ в первое уравнение:
+$x_1 - 3 * \frac{47}{56} + 4 * -\frac{13}{28} = -4 $ \Longleftrightarrow
+$x_1 = -4 + \frac{13}{7} + \frac{141}{56} = \frac{3}{8}$
+
+\textbf{Ответ: $(\frac{3}{8}, \frac{47}{56}, -\frac{13}{28})$\\}
+
+\end{quote}    
+\hspace{1cm}(d)
+$\begin{pmatrix}
+    1 & 0 & 3 & 0 & | & 2 \\
+    0 & 1 & 0 & -3 & | & 3 \\
+    0 & -2 & 3 & 2 & | & 1 \\
+    3 & 0 & 0 & -12 & | & -5 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & 0 & 3 & 0 & | & 2 \\
+    0 & 1 & 0 & -3 & | & 3 \\
+    0 & -2 & 3 & 2 & | & 1 \\
+    0 & 0 & -9 & -12 & | & -11 \\
+\end{pmatrix}$ \Longleftrightarrow
+\begin{pmatrix}
+    1 & 0 & 3 & 0 & | & 2 \\
+    0 & 1 & 0 & -3 & | & 3 \\
+    0 & 0 & 3 & -4 & | & 7 \\
+    0 & 0 & -9 & -12 & | & -11 \\
+\end{pmatrix} \Longleftrightarrow
+
+\hspace{1cm}
+\Longleftrightarrow \begin{pmatrix}
+    1 & 0 & 3 & 0 & | & 2 \\
+    0 & 1 & 0 & -3 & | & 3 \\
+    0 & 0 & 3 & -4 & | & 7 \\
+    0 & 0 & 0 & -24 & | & 10 \\
+\end{pmatrix}
+\Longleftrightarrow \begin{pmatrix}
+    1 & 0 & 3 & 0 & | & 2 \\
+    0 & 1 & 0 & -3 & | & 3 \\
+    0 & 0 & 1 & -\frac{4}{3} & | & \frac{7}{3} \\
+    0 & 0 & 0 & 1 & | & -\frac{5}{12} \\
+\end{pmatrix}
+$
+
+\begin{quote}
+   \leftskip=0.15cm 
+    
+Подставим $x_4$ в третье уравнение: $x_3 = \frac{4}{3} * -\frac{5}{12} + \frac{7}{3} = \frac{16}{9}$
+
+Подставим $x_4$ во второе уравнение: $x_2 = 3 * -\frac{5}{12} + 3 = \frac{7}{4} $
+
+Подставим $x_3$ в первое уравнение: $x_1 =  - 3 * \frac{16}{9}  + 2= -\frac{10}{3}$
+
+
+\textbf{Ответ: $(-\frac{10}{3}, \frac{7}{4}, \frac{16}{9}, -\frac{5}{12})$\\}
+\end{quote}
+
+\textsf{\textbf{(2)}}
+
+\hspace{1cm}(a) 
+$
+\begin{pmatrix}
+   1 & h & | & 4 \\
+   3 & 6 & | & 8 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+   1 & h & | & 4 \\
+   0 & 6 - 3h & | & -4 \\
+\end{pmatrix}
+$
+
+\begin{quote}
+\leftskip=0.15cm
+Система имеет решения, когда  $ 6 - 3h \neq 0 $ 
+
+(в ином случае, второе ур. превращается в $0 = -4$, что неверно)
+
+\textbf{Ответ: $h \neq 2$\\}
+
+\end{quote}
+
+\hspace{1cm}(b)
+\begin{pmatrix}
+    2 & -3 & | & h \\
+    -6 & 9 & | & 5 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    2 & -3 & | & h \\
+    0 & 0 & | & 5 + 3h \\
+\end{pmatrix}
+
+
+\begin{quote}
+\leftskip=0.15cm    
+    Система имеет решения, когда $5 + 3h = 0$ 
+    
+    \textbf{Ответ: $h = -\frac{5}{3}$\\}
+
+
+\end{quote}
+
+\hspace{1cm}(c)
+\begin{pmatrix}
+    1 & h & | & -3 \\
+    2 & 4 & | & 6 \\
+\end{pmatrix} \Longleftrightarrow
+\begin{pmatrix}
+    1 & h & | & -3 \\
+    0 & 4 - 2h & | & 12 \\
+\end{pmatrix}
+
+\begin{quote}
+\leftskip=0.15cm    
+    Система имеет решения, когда $4 - 2h \neq 0$ 
+    
+    \textbf{Ответ: $h \neq 2$\\}
+
+\end{quote}
+
+
+\textsf{\textbf{(3)}}
+
+\hspace{1cm}
+    \begin{pmatrix}
+        1 & 3 & | & f \\
+        c & d & | & g \\ 
+    \end{pmatrix} \Longleftrightarrow
+     \begin{pmatrix}
+        1 & 3 & | & f \\
+        0 & d - 3c & | & g - fc \\ 
+    \end{pmatrix}
+
+\begin{quote}
+    
+Чтобы система имела решения при любых $f,g \in \mathbb{R}$,
+надо, чтобы второе уравнение 
+не превратилось в ложное выражение (например, 0 = 1). Его правая часть м.б. любой, значит 
+левая должна быть ненулевой, т.е. $d \neq 3c$
+
+
+    \textbf{Ответ: $d \neq 3c$\\}
+
+\end{quote}
+\textsf{\textbf{(4)}}
+
+\begin{quote}
+(a) Поменять местами $r_2$ и $r_1$
+
+(b) $r_2 = r_2 * -\frac{1}{2}$
+
+(c) $r_3 = r_3 - r_1 * 4$ 
+
+(d) $r_3 = r_3 + r_2 * 3$
+
+\end{quote}
+
+\empty
+
+
+\textsf{\textbf{(5)}}
+
+
+\hspace{1cm}Составим систему уравнений:
+\begin{equation*}
+ \begin{cases}
+ T_1 = \frac{10 + 20 + T_2 + T_4}{4}
+   \\
+   
+ T_2 = \frac{40 + 20 + T_3 + T_1}{4}
+   \\
+   
+ T_3 = \frac{40 + 30 + T_4 + T_2}{4}
+ \\
+ T_4 = \frac{10 + 30 + T_1 + T_3}{4}
+ \end{cases} \Longleftrightarrow
+ \begin{cases}
+  4T_1 - T_2 - T_4 = 30
+   \\
+  - T_1 + 4T_2 - T_3= 60
+   \\
+  - T_2 +  4T_3 - T_4= 70
+ \\
+ - T_1 - T_3 + 4T_4= 40
+ \end{cases}
+\end{equation*}
+
+\hspace{1cm}Решим ее: 
+$\begin{pmatrix}
+    4 & -1 & 0 & -1 & | & 30 \\
+    -1 & 4 & -1 & 0 & | & 60 \\
+    0 & -1 & 4 & -1 & | & 70 \\
+    -1 & 0 & -1 & 4 & | & 40 \\
+\end{pmatrix}$ \Longleftrightarrow
+$\begin{pmatrix}
+    4 & -1 & 0 & -1 & | & 30 \\
+    0 & \frac{15}{4} & -1 & -\frac{1}{4} & | &\frac{135}{2}  \\
+    0 & -1 & 4 & -1 & | & 70 \\
+    -1 & 0 & -1 & 4 & | & 40 \\
+\end{pmatrix}$ \Longleftrightarrow
+
+\hspace{2cm}\Longleftrightarrow
+$\begin{pmatrix}
+    4 & -1 & 0 & -1 & | & 30 \\
+    0 & \frac{15}{4} & -1 & -\frac{1}{4} & | &\frac{135}{2}  \\
+    0 & -1 & 4 & -1 & | & 70 \\
+    0 & -\frac{1}{4} & -1 & \frac{15}{4} & | & \frac{95}{2} \\
+\end{pmatrix}$ \Longleftrightarrow
+$\begin{pmatrix}
+    4 & -1 & 0 & -1 & | & 30 \\
+    0 & \frac{15}{4} & -1 & -\frac{1}{4} & | &\frac{135}{2}  \\
+    0 & -1 & 4 & -1 & | & 70 \\
+    0 & 0 & -2 & 4 & | & 30 \\
+\end{pmatrix}$ \Longleftrightarrow
+
+\hspace{2cm}\Longleftrightarrow
+$\begin{pmatrix}
+    4 & -1 & 0 & -1 & | & 30 \\
+    0 & \frac{15}{4} & -1 & -\frac{1}{4} & | &\frac{135}{2}  \\
+    0 & 0 & \frac{56}{15} & -\frac{16}{15} & | & 88 \\
+    0 & 0 & -2 & 4 & | & 30 \\
+\end{pmatrix}$ \Longleftrightarrow
+$\begin{pmatrix}
+    4 & -1 & 0 & -1 & | & 30 \\
+    0 & \frac{15}{4} & -1 & -\frac{1}{4} & | &\frac{135}{2}  \\
+    0 & 0 & \frac{56}{15} & -\frac{16}{15} & | & 88 \\
+    0 & 0 & 0 & \frac{24}{7} & | & \frac{540}{7}\\
+\end{pmatrix}$
+
+\hspace{1cm}Получается, $x_4 = \frac{540}{24} = \frac{45}{2}.$ 
+Подставим в третье уравнение: $\frac{56}{15}x_3 = 88 + \frac{16}{15} * \frac{45}{2}= 
+
+\hspace{1cm}= 112\Longleftrightarrow x_3 = 30.$ Подставим во второе: 
+$15x_2 = 4 * 30 + \frac{45}{2} + 270 \Longleftrightarrow x_2 = \frac{55}{2}.$
+
+\hspace{1cm}Подставим в первое: $4x_1 = \frac{55}{2} + \frac{45}{2} + 30 = 80 \Longleftrightarrow x_1 = 20$
+
+\begin{quote}
+\leftskip=0.1cm
+    \textbf{Ответ: $(20, \frac{55}{2}, 30, \frac{45}{2})$}
+
+\end{quote}
+\end{document}

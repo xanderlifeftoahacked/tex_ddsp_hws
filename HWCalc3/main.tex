@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{МатАн ДЗ №3}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+
+\textsf{\textbf{(1)}}
+
+\begin{quote}
+(a) $\{x_n\} = \{0 , 1 , 1 , 1 ...\}$, \  $\{y_n\} = \{1 , 0 , 0 , 0 ...\}$
+
+(b) $\{x_n\} = \{0 , 1 , 1 , 1 ...\}$, \  $\{y_n\} = \{1 , 0 , 1 , 0 , 1 ...\}$
+\end{quote}
+
+\textsf{\textbf{(2)}}
+
+\begin{quote}
+(a) $a_n = a$
+
+(b) $a_n  = a + \frac{1}{n}$
+
+
+(c) $a_n = \begin{cases}
+a , \quad n\text{ - чет.} \\
+\frac{1}{n} + a , \quad n\text{ - нечет.}
+\end{cases}$
+
+(d) $\{a_n\} = \{a, a - 1, a, a - 1...\}$
+\end{quote}
+
+\textsf{\textbf{(3)}}
+
+\begin{quote}
+Если $x$ - предел \{$x_n$\}, значит (по определению) в любой окрестности $x$ содержатся почти все члены $\{x_n\}$, т.е. все элементы за исключением
+их конечного числа. Если мы добавим в начало этой последовательности конечное число элементов, то в любой окрестности $x$ по-прежнему будут содержатся почти все элементы, значит $x$ по-прежнему будет пределом \{$x_n$\}. Аналогично с отбрасыванием конечного числа элементов.  
+\end{quote}
+
+\textsf{\textbf{(4)}}
+\begin{quote}
+(a) 
+\begin{quote}
+   Из определения предела:
+   $\forall \varepsilon > 0 \ \exists N \ \forall n > N \ : \ |\frac{1}{\sqrt{3n - 11}} - 0| < \varepsilon$
+   
+    $\sqrt{3n - 11} > 0$ при натуральных $n$ $\Leftrightarrow $ дробь всегда положительна, тогда:
+    
+    $\frac{1}{\sqrt{3n - 11}} < \varepsilon \Longleftrightarrow
+    3n - 11 > \frac{1}{\varepsilon ^ 2} \Longleftrightarrow n > \frac{1}{3 \varepsilon ^ 2} + \frac{11}{3}$
+
+    Неравенство будет выполнятся для $\forall n > N$ при $N = \left\lceil{\frac{1}{3 \varepsilon ^ 2} + \frac{11}{3}}\right\rceil + 1$. Сходимость доказана.
+\end{quote}
+
+(b) 
+\begin{quote}
+   Из определения предела:
+   $\forall \varepsilon > 0 \ \exists N \ \forall n > N \ : \ |\frac{2n + 3}{n ^ 2} - 0| < \varepsilon$
+   
+    $n^2 > 0, \ 2n + 3 > 0$ при натуральных $n$, т.е. дробь всегда положительна, тогда:
+
+    $\frac{2n + 3}{n^2} = \frac{2}{n} + \frac{3}{n ^ 2} < \frac{2}{n} + \frac{3}{n} < \varepsilon \Longleftrightarrow n > \frac{5}{\varepsilon}$
+
+    
+    Неравенство будет выполнятся для $\forall n > N$ при $N = \left\lceil{\frac{5}{\varepsilon}}\right\rceil$. Сходимость доказана.
+\end{quote}
+
+(c) 
+\begin{quote}
+   Из определения предела:
+   $\forall \varepsilon > 0 \ \exists N \ \forall n > N \ : \ |\frac{\cos n}{\sqrt{n}} - 0| < \varepsilon$
+
+   
+   Косинус принимает значения от -1 до 1, значит дробь можем ограничить сверху так:
+   $
+    |\frac{\cos n}{\sqrt{n}}| \leq \frac{1}{\sqrt{n}}
+   $
+
+  $\frac{1}{\sqrt{n}} < \varepsilon \Longleftrightarrow n > \frac{1}{\varepsilon ^ 2}$ 
+  
+    Неравенство будет выполнятся для $\forall n > N$ при $N = \left\lceil{\frac{1}{\varepsilon ^ 2}}\right\rceil$. Сходимость доказана.
+\end{quote}
+\end{quote}
+
+\textbf{\textsf{(5)}}
+\begin{quote}
+$\lim\limits_{n\to \infty} x_n = - \infty$ \qquad
+$\exists C \ \exists n_0(C) \ \forall n > n_0(C) : \ y_n \leq C$
+
+(?) $\lim\limits_{n\to \infty}(x_n + y_n) = -\infty$
+
+$x_n$ - стремится к $- \infty$, по определению:
+
+$\forall M > 0 \ \exists N(M) \ \forall n > N(M): x_n < -M$
+
+
+$x_n + y_n < -M + y_n$ \ , если $N > n_0$, то $x_n + y_n < -M + C$
+
+Возьмем $N_1 = max(N(M), n_0(C))$. 
+Тогда: 
+
+$\forall \underbrace{(-M + C)}_{M_1} > 0 \ \exists N_1 \ \forall n > N_1: x_n + y_n < \underbrace{-M + C}_{M_1}$
+
+Т.е. $x_n + y_n$ - стремится к $- \infty$ по опр. ЧТД.
+
+
+\end{quote}
+
+\textbf{\textsf{(6)}}
+
+\begin{quote}
+
+$\lim\limits_{n\to \infty} x_n = \infty$ \qquad
+(*) $\exists C \ \exists n_0(C) \ \forall n > n_0(C) : \ y_n \geq C > 0$
+
+(?) $\lim\limits_{n \to \infty} (x_n \cdot y_n) = a$
+
+1. $a = + \infty$
+\begin{quote}
+    
+$x_n$ стремится к $+\infty$, по определению:
+
+\begin{cases}
+    
+$\forall M > 0 \ \exists N(M) \ \forall n > N(M): x_n > M$ \\
+(*)
+\end{cases}
+$\Rightarrow$
+
+$\Rightarrow$
+$\forall M > 0 \ \exists N \ \forall n > \underbrace{(N + n_0)}_{N'}: x_n \cdot y_n > \underbrace{M \cdot C}_{M'}$
+
+$\forall M' > 0 \ \exists N' \ \forall n > N': x_n \cdot y_n > M' \Leftrightarrow x_n \cdot y_n$ стремится к $+ \infty$ по опр.
+\end{quote}
+2. $a = - \infty$
+\begin{quote}
+    
+$x_n$ стремится к $-\infty$, по определению:
+
+\begin{cases}
+    
+$\forall M > 0 \ \exists N(M) \ \forall n > N(M): x_n < -M$ \\
+(*)
+\end{cases}
+$\Rightarrow$
+
+$\Rightarrow$
+$\forall M > 0 \ \exists N \ \forall n > \underbrace{(N + n_0)}_{N'}: x_n \cdot y_n < \underbrace{-M \cdot C}_{M'}$
+
+$\forall M' > 0 \ \exists N' \ \forall n > N': x_n \cdot y_n < -M' \Leftrightarrow x_n \cdot y_n$ стремится к $- \infty$ по опр.
+
+\end{quote}
+ЧТД.
+
+\end{document}

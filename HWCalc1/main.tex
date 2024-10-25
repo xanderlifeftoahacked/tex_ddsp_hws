@@ -1,0 +1,203 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage{booktabs}
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{МатАн ДЗ №1}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+\textsf{\textbf{1.}}
+\begin{quote}
+\leftskip=0.2cm    
+Рассмотрим правую часть: 
+
+$
+(P  \Rightarrow R) \lor (Q  \Rightarrow R)
+\equiv (\neg P  \lor R) \lor (\neg Q \lor R)
+\equiv \neg P \lor R \lor \neg Q
+\equiv \neg (P \land Q) \lor R
+\equiv (P \land Q) \Rightarrow R
+$
+
+$(P \land Q) \Rightarrow R \not\equiv (P \lor Q) \Rightarrow R$
+
+Контрпример: $P = 0, \ Q = 1, \ R = 0$
+
+\textbf{Ответ: нет}
+\end{quote}
+
+\textsf{\textbf{2.}}
+\begin{quote}
+
+\begin{tabular*}{\columnwidth}{l l}
+(a) $\exists x \ \exists y \ \forall z \ : xy^2 \ge z$& (c) $\forall z \ \exists x \forall y \ : xy^2 \neq z$ \\
+(b) $\exists x \ \exists z \ \forall y \ : xy^2 > z$& (d) $\exists z \ \forall x \exists y \ : xy^2 > z $\\
+\end{tabular*}
+\end{quote}
+
+\textsf{\textbf{3.}}
+\begin{quote}
+\leftskip=0.2cm    
+(a) Если расстояние от любого действительного $x$ до трех меньше единицы, то расстояние от $x$ до нуля меньше четырех. Действительно: $x \in (2, 4) \Rightarrow x \in (-4, 4)$. Т.е. утверждение \textbf{верно}. 
+
+\vspace{0.4cm}
+(b) Если расстояние от любого действительного $x$ до трех больше единицы, то расстояние от $x$ до нуля больше четырех. \textbf{Неверн}о: возьмем $x = 1$, тогда левая (относительно $\Rightarrow$) часть утверждения истина, а правая ложна.$ \top \not\Rightarrow \bot $
+
+\vspace{0.4cm}
+(c) $\forall \epsilon \ \forall x \ : |x - 3| < min(\epsilon;1) \Rightarrow |x^2 - 9| < 10\epsilon$
+
+Попробуем доказать истинность правой части при истинности левой. 
+
+Не будем рассматривать $\epsilon > 1, $ т.к. если правое неравенство выполняется при меньших $\epsilon$, 
+значит оно будет выполняться и при больших.
+
+
+Левая часть истина, когда $x \in (3 - \epsilon; 3 + \epsilon) \ , \ \epsilon \in (0; 1] $
+
+Рассмотрим правую часть: 
+\left[ 
+      \begin{gathered} 
+        x^2 - 9 < 10 \epsilon \ , \ x \in (-\inf;-3] \cup [3;+\inf)  \\ 
+        -x^2 + 9 < 10 \epsilon \ , \ x \in [-3;3] \\ 
+      \end{gathered} 
+\right.
+
+
+\end{quote}
+
+\begin{quote}
+    
+\leftskip=0.2cm    
+$-x^2 + 9$ монотонна при $x > 0$, поэтому если неравенство будет выполнятся на концах отрезка
+$(3 - \epsilon; 3 + \epsilon)$, то будет выполнятся и на всем отрезке. 
+Подставим: 
+
+\hspace{1cm}
+    \begin{cases}
+        $-(9 - 6 \epsilon + \epsilon ^2)  + 9 < 10 \epsilon $\\
+        $-(9 + 6 \epsilon + \epsilon ^2)  + 9 < 10 \epsilon $\\
+    \end{cases} \Longleftrightarrow
+     \begin{cases}
+        $-4 \epsilon - \epsilon ^2   < 0$\\
+        $-16 \epsilon - \epsilon ^2   < 0 $\\
+    \end{cases} \Longleftrightarrow
+    \begin{cases}
+        $\epsilon \in (-\inf; -4) \cup (0;+\inf)$\\
+        $\epsilon \in (-\inf; -16) \cup (0;+\inf)$\\
+    \end{cases}
+\end{quote}
+
+\begin{quote}
+\leftskip=0.2cm    
+$ x^2 - 9$ монотонна при $x > 0$, поэтому если неравенство будет выполнятся на концах отрезка
+$(3 - \epsilon; 3 + \epsilon)$, то будет выполнятся и на всем отрезке. 
+Подставим: 
+
+    \begin{cases}
+        $(9 - 6 \epsilon + \epsilon ^2)  - 9 < 10 \epsilon $\\
+        $(9 + 6 \epsilon + \epsilon ^2)  - 9 < 10 \epsilon $\\
+    \end{cases} \Longleftrightarrow
+     \begin{cases}
+        $-16 \epsilon + \epsilon ^2   < 0$\\
+        $-4 \epsilon + \epsilon ^2   < 0 $\\
+    \end{cases} \Longleftrightarrow
+    \begin{cases}
+        $\epsilon \in (0; 16)$\\
+        $\epsilon \in (0; 4)$\\
+    \end{cases}
+    
+\end{quote}
+\begin{quote}
+\leftskip=0.2cm    
+Т.е. при $\epsilon $, при которых левая часть истина, правая часть тоже истина. В случае, если левая часть ложна, правая м.б. любой. Утверждение \textbf{верно}.
+
+\vspace{0.4cm}
+(d) $\forall \epsilon \ \exists \delta \ \forall x \ : (\delta > 0) \land (|x - 3| < \delta) \land
+(\epsilon > 0) \Rightarrow |x^2 - 9 | < \epsilon$. 
+Мы всегда можем взять $\delta \le 0$, тогда левая часть утверждения всегда будет ложной, т.е. утверждение будет
+всегда \textbf{верным}.
+
+\end{quote}
+
+\textsf{\textbf{4.}}
+\begin{quote}
+\leftskip=0.2cm    
+$a_1 = 2,  \ a_2 = 3 \qquad a_{n+1} = 3a_n - 2a_{n-1} \qquad$ Доказть: $a_n = 2^{n-1} + 1$
+
+
+$n$ - натуральное, т.к. является индексом. Докажем с помощью метода мат. индукции.
+
+1. База ($n = 1$): $ \ a_1 = 2 = 2^{1 - 1} + 1$ - верно.
+
+2. Пусть утверждение  $a_n = 2^{n-1} + 1 \ $ верно для $n = k \ : a_k = 2^{k-1} + 1$
+
+3. Проверим, верно ли для $n = k + 1 \:$
+\[
+a_{k + 1 + 1} = 3a_{k+1} - 2a_{k + 1 - 1} \Longleftrightarrow a_{k + 2} = 3*(2^{k + 1 - 1} + 1) - 2 * (2^{k - 1} + 1) \Longleftrightarrow
+
+\Longleftrightarrow a_{k + 2} = 3*2^k + 3 - 2^k - 2 = 2*2^k + 1 = 2^{k + 1} + 1
+\] Т.е. формула верна. ЧТД.
+\end{quote}
+
+\textsf{\textbf{5.}}
+\begin{quote}
+\leftskip=0.2cm    
+
+Доказать, что $\forall n \in \mathbb{N}: (4^n + 15n - 1) \equiv 0 \mod 9$
+
+1. База ($n = 1$): $4^1 + 15 * 1 - 1 = 18$ - кратно девяти
+
+2. Пусть утверждение $4^n + 15n - 1 \equiv 0 \mod 9$ верно для $n=k : \ 4^k + 15k - 1 \equiv 0 \mod 9$
+
+3. Проверим, верно ли для $n = k + 1  : \ $
+\[
+    4^{k + 1} + 15*(k + 1) - 1 \equiv 4 * 4^k + 15k + 14
+    \equiv \underbrace{4^k + 15k - 1}_{\equiv 0 \mod 9} + 15 + 3 * 4^k
+\]
+Осталось доказать, что $15 + 3 * 4^k$ кратно 9, т.е. что $5 + 4^k$ кратно трем:
+
+Предположим: $5 + 4^k \equiv 0 \mod 3 \Leftrightarrow 4^k \equiv -5 \mod 3 \Leftrightarrow 4^k 
+\equiv 1 \mod 3 .$  Т.е. предположение верно. Значит $15 + 3 * 4^k$ кратно 9. ЧТД.
+
+
+\end{quote}
+\textsf{\textbf{6.}}
+\begin{quote}
+\leftskip=0.2cm    
+
+Доказать, что $\forall n \in \mathbb{N}: 1^3 + 2^3 + 3^3 + ... + n^3 = \frac{n^2(n+1)^2}{4}$ (*)
+
+1. База ($n = 1$): $1^3 = \frac{1 * 2^2}{4}$ - верно
+
+2. Пусть утверждение (*) верно для $n=k : 1^3 + 2^3 + 3^3 + ... + k^3 = \frac{k^2(k+1)^2}{4}$
+
+3. Проверим, верно ли для $n = k + 1  : \ $
+\begin{center}
+    
+$1^3 + 2^3 + 3^3 + ... + k^3 + (k + 1)^3 = \frac{(k + 1)^2(k+2)^2}{4}$
+
+$\frac{k^2(k+1)^2}{4}+ (k + 1)^3 = \frac{(k + 1)^2(k+2)^2}{4}$
+
+$\frac{k^2(k+1)^2 + 4(k + 1)^3}{4} = \frac{(k + 1)^2(k+2)^2}{4}$
+
+$k^2 + 4(k + 1) = (k+2)^2$
+
+$k^2 + 4k + 4 = k^2 + 4k + 4$ - Верно. Исходное равенство доказано.
+\end{center}
+\end{quote}
+\end{document}

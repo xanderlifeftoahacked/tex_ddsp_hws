@@ -1,0 +1,218 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage{booktabs}
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+
+\let\emptyset\varnothing
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{Дискра ДЗ №2}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+
+
+\textsf{\textbf{1.}}
+\begin{quote}
+
+
+\begin{center}
+$0 \cdot n + 1 \cdot (n - 1) + 2 \cdot (n - 2) + ... +
+(n - 1) \cdot 1 + n \cdot 0 = \frac{(n-1)n(n+1)}{6}$ (*)
+
+$(\sum_{i = 0}^{n} i \cdot (n - i) = \frac{(n-1)n(n+1)}{6})$ 
+\end{center}
+
+1. База ($n = 1$): $ 0 * 1 + 1(1-1) = 0 = \frac{0}{6}$ - верно
+
+2. Пусть утверждение (*) верно для $n=k$ : 
+
+\begin{center}
+$0 \cdot k + 1 \cdot (k - 1) + 2 \cdot (k - 2) + ... +
+(k - 1) \cdot 1 + k \cdot 0 = \frac{(k-1)k(k+1)}{6}$
+\end{center}
+
+3. Проверим, верно ли для $n = k + 1$:
+
+\begin{center}
+
+$0 \cdot (k + 1)+ 1 \cdot (k + 1 - 1) + 2 \cdot (k + 1 - 2) + ... +
+(k + 1 - 1) \cdot 1 + (k + 1) \cdot 0 = $
+
+$= 1 \cdot k + 2 \cdot (k - 1) + ... + (k - 1) \cdot 2 +
+k \cdot 1 = $
+
+
+$ = 1 \cdot (k - 1) + 2 \cdot (k - 2) + ... +
+(k - 1) \cdot 1 + (k + (k - 1) + ... + 2 + 1) = $
+
+$= \frac{(k-1)k(k+1)}{6} + \frac{k(k + 1)}{2} = \frac{(k - 1)k(k+1) + 3k(k+1)}{6}=$
+$ \frac{k(k+1)((k-1) + 3)}{6} = $
+
+$= \frac{k(k+1)(k + 2)}{6}$ 
+\end{center}
+
+Является выражением из п.2, но с $k = k + 1$. Исходное равенство доказано.
+\end{quote}
+
+\textsf{\textbf{2.}}
+\begin{quote}
+
+1. База ($n$ (число городов) $=2$): из какого-то города можно попасть в любой другой (во второй) - верно
+
+2. Пусть утверждение верно для $n=k$
+
+3. Докажем верность для $n = k + 1$:
+
+Пусть старый город, из которого можно было добраться в любой другой будет $A_x$, добавленный город - $A_y$.
+
+Если $A_x$ и $A_y$ соединены дорогой из $A_x$ в $A_y$, то $A_x$ - по-прежнему город, откуда можно добраться в любой другой.
+
+Если $A_x$ и $A_y$ соединены дорогой из $A_y$ в $A_x$, то рассмотрим два случая:
+
+1. Все дороги, связанные с $A_y$ идут из $A_y$. Тогда из $A_y$ можно добраться в любой другой город.
+
+2. Не все дороги, связанные с $A_y$ идут из $A_y$. Тогда в $A_y$ идет дорога из какого-то $A_z$. По предположению индукции из $A_x$ можно добраться в т.ч. в $A_z$. Значит можно сделать так: $A_x \rightarrow A_z \rightarrow A_y$, т.е. $A_x$ - по-прежнему город, из которого можно добраться в любой другой.
+
+Утверждение доказано.
+\end{quote}
+
+
+\textsf{\textbf{3.}} ($x$ - произвольный элемент)
+\begin{quote}
+(a) 
+\begin{quote}
+    Пусть $\quad a = x \in A \ , \quad b = x \in B \ , \quad c = x \in C$ 
+
+    Тогда правая часть равенства: $b \land \neg c$
+    
+    Перепишем левую часть равенства:
+
+    \begin{center}
+        $(a \lor b) \land \neg (a \lor c) \equiv (a \lor b) \land \neg a \land \neg c \equiv 
+        ((a \land \neg a) \lor (b \land \neg a)) \land \neg c \equiv$
+        
+       $ 
+        \equiv (b \land \neg a) \land \neg c \not \equiv b \land \neg c
+        $
+    \end{center}  
+
+    Контрпример: $(a = 1, \ b = 1, \ c = 0)$
+    
+    Т.е. утверждение верно не для любых A, B, C. Ответ.
+
+   
+\end{quote}
+
+(b) 
+\begin{quote}
+    Пусть $\quad a = x \in A \ , \quad b = x \in B \ , \quad c = x \in C , \ \quad d = x \in D$ 
+
+    Левая часть:
+    $((a \land \neg b) \land \neg c) \land \neg d  \equiv a \land \neg b \land \neg c \land \neg d$
+
+    Правая часть:
+    $a \land \neg (b \land \neg (c \land \neg d))$
+
+    Правая часть не эквивалентна левой, контрпример:
+    
+    $(a = 1, \ b = 0, \  c = 1, \  d = 0)$ Ответ.
+
+\end{quote}
+
+(c) 
+\begin{quote}
+    Пусть $\quad a = x \in A \ , \quad b = x \in B \ , \quad c = x \in C $ 
+
+    Левая часть:
+    $a \land \neg (b \lor c) \equiv a \land \neg b \land \neg c$
+
+    Правая часть:
+    $(a \land \neg b) \land \neg c \equiv a \land \neg b \land \neg c$
+
+    Левая и правая части эквивалентны.
+    
+    Ответ: верно
+\end{quote}
+
+
+(d) 
+\begin{quote}
+    Пусть $\quad a = x \in A \ , \quad b = x \in B $ 
+
+    Левая часть: $(a \lor b) \land \neg (a \land \neg b) \equiv (a \lor b) \land (\neg a \lor b) \equiv b$ - 
+    истинно только при $b = 1$
+
+    Т.е. произвольный элемент лежит в $(A \cup B) \setminus (A \setminus B)$, тогда и только тогда, когда он лежит в $B$. Значит $(A \cup B) \setminus (A \setminus B) \subseteq B$. 
+    
+    Ответ: верно
+
+\end{quote}
+\end{quote}
+
+\textsf{\textbf{4.}} ($x$ - произвольный элемент)
+\begin{quote}
+Пусть  $a_i = x \in A_i, \ 1 \leq i \leq n \ , \quad b_j = x \in B_j, \ 1 \leq j \leq n$:
+
+Правая часть равенства: $(a_1 \land \neg b_1) \land (a_2 \land \neg b_2) \land ... \land (a_n \land \neg b_n)$
+
+Левая часть равенства: 
+\begin{center}
+    
+$(a_1 \land ... \land a_n) \land \neg (b_1 \lor ... \lor b_n) \equiv
+a_1 \land ... \land a_n \land \neg b_1 \land ... \land \neg b_n \equiv$
+
+$\equiv (a_1 \land \neg b_1) \land (a_2 \land \neg b_2) \land ... \land (a_n \land \neg b_n) $ 
+ЧТД.
+\end{center}
+\end{quote}
+
+\textsf{\textbf{5.}} ($x$ - произвольный элемент)
+\begin{quote}
+    Пусть $\quad a = x \in A \ , \quad b = x \in B \ , \quad c = x \in C $.
+    Тогда выражение принимает вид:
+
+    \begin{center}
+    $a \lor b \Rightarrow c \land \neg (a \land b)$
+
+    \end{center}
+
+    Если оно истинно, то:
+    
+
+\left[ 
+\begin{gathered} 
+$a \lor b = 0$ (*) \\
+    \begin{cases}
+     $a \lor b = 1$ \\ 
+     $c \land \neg (a \land b) = 1$ (**)
+    \end{cases}
+\end{gathered} 
+\right
+
+\end{quote}
+
+\begin{quote}
+
+(*) Истинно, только если произвольный элемент не может лежать в $A \cup B$,
+
+т.е. $A \cup B = \emptyset$, следовательно $A \cap B = \emptyset$
+
+(**) Истинно, только если $c$ - истинно и $(a \land b)$ - ложно, т.е. произвольный элемент не может лежать в $A \cap B$, иными словами $A \cap B = \emptyset $
+
+Ответ: верно
+\end{quote}
+
+\end{document}

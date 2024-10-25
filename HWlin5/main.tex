@@ -1,0 +1,338 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{ЛинАл ДЗ №5}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+\textsf{\textbf{(1)}} (Виктор Евгеньевич разрешил не приводить к улучшенному ступ. виду, т.к. сразу видно, как выразить остальные вектора через базисные)
+
+\begin{quote}
+(a) Составим матрицу из векторов и приведем ее к транспонированному ступенчатому виду:
+
+$\begin{pmatrix} 
+\mathbf{v_1} & \mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} \\
+1 & 2 & 1 & 1 & 0 \\
+0 & 1 & 1 & 2 & 1 \\
+0 & 1 & 1 & 3 & 2 \\
+-1 & 0 & 1 & 4 & 3 \\ 
+\end{pmatrix}$ \Leftrightarrow
+$\begin{pmatrix} 
+\mathbf{v_1} & \mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} \\
+2 & 2 & 1 & 1 & 0 \\
+1 & 1 & 1 & 2 & 1 \\
+1 & 1 & 1 & 3 & 2 \\
+0 & 0 & 1 & 4 & 3 \\ 
+\end{pmatrix}$ \Leftrightarrow
+$\begin{pmatrix} 
+\mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} & \mathbf{v_1}\\
+2 & 1 & 1 & 0 & 0 \\
+1 & 1 & 2 & 1 & 0 \\
+1 & 1 & 3 & 2 & 0 \\
+0 & 1 & 4 & 3 & 0 \\ 
+\end{pmatrix}$ \Leftrightarrow
+
+\hspace{0.8cm}
+$\begin{pmatrix} 
+\mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} & \mathbf{v_1}\\
+2 & 0 & 1 & 0 & 0 \\
+1 & -1 & 2 & 1 & 0 \\
+1 & -2 & 3 & 2 & 0 \\
+0 & -3 & 4 & 3 & 0 \\ 
+\end{pmatrix}$ \Leftrightarrow
+$\begin{pmatrix} 
+\mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} & \mathbf{v_1}\\
+2 & 0 & 0 & 0 & 0 \\
+1 & -1 & \frac{3}{2} & 1 & 0 \\
+1 & -2 & \frac{5}{2} & 2 & 0 \\
+0 & -3 & 4 & 3 & 0 \\ 
+\end{pmatrix}$ \Leftrightarrow
+$\begin{pmatrix} 
+\mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} & \mathbf{v_1}\\
+2 & 0 & 0 & 0 & 0 \\
+1 & -1 & 0 & 1 & 0 \\
+1 & -2 & 1 & 2 & 0 \\
+0 & -3 & 4 & 3 & 0 \\ 
+\end{pmatrix}$ \Leftrightarrow
+
+\hspace{0.8cm}
+$\begin{pmatrix} 
+\mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} & \mathbf{v_1}\\
+2 & 0 & 0 & 0 & 0 \\
+1 & -1 & 0 & 0 & 0 \\
+1 & -2 & 1 & 0 & 0 \\
+0 & -3 & 4 & 0 & 0 \\ 
+\end{pmatrix}$
+Получаем, что $v_2, v_3, v_4$ - линейно независимые
+
+\hspace{0.8cm}
+Размерность равна 3, базис могут составлять $v_2, v_3, v_4$, \quad $v_1 = v_2 - v_3$, \quad $v_5 = v_4 - v_3$ 
+
+\hspace{0.8cm} ($v_1, v_2, v_3, v_4, v_5$ до элементарных преобразований)
+\end{quote}
+
+\begin{quote}
+    (b) Составим матрицу из векторов и приведем ее к транспонированному ступенчатому виду:
+
+    $
+    \begin{pmatrix}
+\mathbf{v_1} & \mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} \\
+    1 & 1 & 2 & 1 & 1 \\    
+    1 & 1 & 2 & 1 & -1 \\    
+    1 & -1 & 0 & 5 & -1 \\    
+    1 & -1 & 0 & 5 & 0 \\    
+    0 & -1 & -1 & 2 & 0 \\    
+    \end{pmatrix} \Leftrightarrow
+        \begin{pmatrix}
+\mathbf{v_1} & \mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} \\
+    1 & 0 & 2 & 1 & 1 \\    
+    1 & 0 & 2 & 1 & -1 \\    
+    1 & -2 & 0 & 5 & -1 \\    
+    1 & -2 & 0 & 5 & 0 \\    
+    0 & -1 & -1 & 2 & 0 \\    
+    \end{pmatrix} \Leftrightarrow
+         \begin{pmatrix}
+\mathbf{v_1} & \mathbf{v_2} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_5} \\
+    1 & 0 & 0 & 1 & 1 \\    
+    1 & 0 & 0 & 1 & -1 \\    
+    1 & -2 & -2 & 5 & -1 \\    
+    1 & -2 & -2 & 5 & 0 \\    
+    0 & -1 & -1 & 2 & 0 \\    
+    \end{pmatrix} \Leftrightarrow
+          \begin{pmatrix}
+\mathbf{v_1} & \mathbf{v_5} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_2} \\
+    1 & 1 & 0 & 1 & 0 \\    
+    1 & -1 & 0 & 1 & 0 \\    
+    1 & -1 & -2 & 5 & 0 \\    
+    1 & 0 & -2 & 5 & 0 \\    
+    0 & 0 & -1 & 2 & 0 \\    
+    \end{pmatrix} \Leftrightarrow
+           \begin{pmatrix}
+\mathbf{v_1} & \mathbf{v_5} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_2} \\
+    1 & 0 & 0 & 1 & 0 \\    
+    1 & -2 & 0 & 1 & 0 \\    
+    1 & -2 & -2 & 5 & 0 \\    
+    1 & -1 & -2 & 5 & 0 \\    
+    0 & 0 & -1 & 2 & 0 \\    
+    \end{pmatrix} \Leftrightarrow
+            \begin{pmatrix}
+\mathbf{v_1} & \mathbf{v_5} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_2} \\
+    1 & 0 & 0 & 0 & 0 \\    
+    1 & -2 & 0 & 0 & 0 \\    
+    1 & -2 & -2 & 4 & 0 \\    
+    1 & -1 & -2 & 4 & 0 \\    
+    0 & 0 & -1 & 2 & 0 \\    
+    \end{pmatrix} \Leftrightarrow
+             \begin{pmatrix}
+\mathbf{v_1} & \mathbf{v_5} & \mathbf{v_3} & \mathbf{v_4} & \mathbf{v_2} \\
+    1 & 0 & 0 & 0 & 0 \\    
+    1 & -2 & 0 & 0 & 0 \\    
+    1 & -2 & -2 & 0 & 0 \\    
+    1 & -1 & -2 & 0 & 0 \\    
+    0 & 0 & -1 & 0 & 0 \\    
+    \end{pmatrix}
+    $ Получатеся, что $v_1, v_5, v_3$ - линейно независимые.
+
+    Размерность равна 3, базис могут составлять $v_1, v_5, v_3$; \quad $v_2 = v_3 - v_1$, \ $v_4 = 5v_1 - 2v_3$ 
+    
+($v_1, v_2, v_3, v_4, v_5$ до элементарных преобразований)
+\end{quote}
+
+\textbf{\textsf{(2)}}
+\begin{quote}
+    (a) $
+    \begin{pmatrix}
+       2 & -4 & 5 & 3 \\ 
+       3 & -6 & 4 & 2 \\ 
+       4 & -8 & 17 & 11 \\ 
+    \end{pmatrix} \Leftrightarrow
+        \begin{pmatrix}
+       2 & -4 & 5 & 3 \\ 
+       3 & -6 & 4 & 2 \\ 
+       0 & 0 & 7 & 5 \\ 
+    \end{pmatrix} \Leftrightarrow
+    \begin{pmatrix}
+       2 & -4 & 5 & 3 \\ 
+       0 & 0 & -\frac{7}{2} & -\frac{5}{2} \\ 
+       0 & 0 & 7 & 5 \\ 
+    \end{pmatrix} \Leftrightarrow
+        \begin{pmatrix}
+       1 & -2 & \frac{5}{2} & \frac{3}{2} \\ 
+       0 & 0 & 7 & 5 \\ 
+       0 & 0 & 0 & 0 \\ 
+    \end{pmatrix} \Leftrightarrow
+            \begin{pmatrix}
+       1 & -2 & 0 & -\frac{2}{7} \\ 
+       0 & 0 & 7 & 5 \\ 
+       0 & 0 & 0 & 0 \\ 
+    \end{pmatrix} \Leftrightarrow
+                \begin{pmatrix}
+       1 & -2 & 0 & -\frac{2}{7} \\ 
+       0 & 0 & 1 & \frac{5}{7} \\ 
+       0 & 0 & 0 & 0 \\ 
+    \end{pmatrix} 
+    $
+    
+    Общее решение: $\begin{cases} x_3 = -\frac{5}{7} x_4 \\ x_1 = 2x_2 + \frac{2}{7} x_4\end{cases}$ $X = \begin{pmatrix}2x_2 + \frac{2}{7}x_4 \\ 
+                          x_2 \\ -\frac{5}{7} x_4 \\ x_4 \end{pmatrix}$
+
+    ФСР = $\{(2, 1, 0 , 0)^T , (\frac{2}{7}, 0, -\frac{5}{7}, 1)^T \}$
+\end{quote}
+
+\begin{quote}
+    (b) 
+$
+\begin{pmatrix}
+3 & 5 & 2 \\        
+4 & 7 & 5 \\        
+1 & 1 & -4 \\        
+2 & 9 & 6 \\        
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+3 & 5 & 2 \\        
+4 & 7 & 5 \\        
+1 & 1 & -4 \\        
+0 & 7 & 14 \\        
+\end{pmat2rix} \Leftrightarrow
+\begin{pmatrix}
+3 & 5 & 2 \\        
+4 & 7 & 5 \\        
+0 & -\frac{3}{4} & -\frac{21}{4} \\        
+0 & 7 & 14 \\        
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+3 & 5 & 2 \\        
+0 & \frac{1}{3} & \frac{7}{3} \\        
+0 & -\frac{3}{4} & -\frac{21}{4} \\        
+0 & 7 & 14 \\        
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+3 & 5 & 2 \\        
+0 & \frac{1}{3} & \frac{7}{3} \\        
+0 & 7 & 14 \\        
+0 & 0 & 0 \\        
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & \frac{5}{3} & \frac{2}{3} \\        
+0 & 1 & 7 \\        
+0 & 7 & 14 \\        
+0 & 0 & 0 \\        
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & \frac{5}{3} & \frac{2}{3} \\        
+0 & 7 & 14 \\        
+0 & 1 & 7 \\        
+0 & 0 & 0 \\        
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & \frac{5}{3} & \frac{2}{3} \\        
+0 & 7 & 14 \\        
+0 & 0 & 5 \\        
+0 & 0 & 0 \\        
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & -\frac{8}{3} \\        
+0 & 7 & 14 \\        
+0 & 0 & 5 \\        
+0 & 0 & 0 \\        
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & 0 \\        
+0 & 1 & 0 \\        
+0 & 0 & 5 \\        
+0 & 0 & 0 \\        
+\end{pmatrix}
+$
+
+Общее решение: $X = \begin{pmatrix}
+    0 \\ 0 \\ 0
+\end{pmatrix}$
+
+ФСР = $\{ (0, 0, 0)^T\}$
+
+(c) 
+$
+\begin{pmatrix}
+1 & 0 & -1 & 0 & 1 & 0 \\    
+0 & 1 & 0 & -1 & 0 & 1 \\    
+1 & -1 & 0 & 0 & 1 & -1\\    
+0 & 1 & -1 & 0 & 0  & 1\\    
+1 & 0 & 0 & -1 & 1 & 0 \\    
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & -1 & 0 & 1 & 0 \\    
+0 & 1 & 0 & -1 & 0 & 1 \\    
+1 & -1 & 0 & 0 & 1 & -1\\    
+0 & 1 & -1 & 0 & 0  & 1\\    
+0 & 0 & 1 & -1 & 0 & 0 \\    
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & -1 & 0 & 1 & 0 \\    
+0 & 1 & 0 & -1 & 0 & 1 \\    
+0 & -1 & 1 & 0 & 0 & -1\\    
+0 & 1 & -1 & 0 & 0  & 1\\    
+0 & 0 & 1 & -1 & 0 & 0 \\    
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & -1 & 0 & 1 & 0 \\    
+0 & 1 & 0 & -1 & 0 & 1 \\    
+0 & -1 & 1 & 0 & 0 & -1\\    
+0 & 0 & -1 & 1 & 0  & 0\\    
+0 & 0 & 1 & -1 & 0 & 0 \\    
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & -1 & 0 & 1 & 0 \\    
+0 & 1 & 0 & -1 & 0 & 1 \\    
+0 & 0 & 1 & -1 & 0 & 0\\    
+0 & 0 & -1 & 1 & 0  & 0\\    
+0 & 0 & 1 & -1 & 0 & 0 \\    
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & -1 & 0 & 1 & 0 \\    
+0 & 1 & 0 & -1 & 0 & 1 \\    
+0 & 0 & 1 & -1 & 0 & 0\\    
+0 & 0 & -1 & 1 & 0  & 0\\    
+0 & 0 & 0 & 0 & 0 & 0 \\    
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & -1 & 0 & 1 & 0 \\    
+0 & 1 & 0 & -1 & 0 & 1 \\    
+0 & 0 & 1 & -1 & 0 & 0\\    
+0 & 0 & 0 & 0 & 0  & 0\\    
+0 & 0 & 0 & 0 & 0 & 0 \\    
+\end{pmatrix} \Leftrightarrow
+\begin{pmatrix}
+1 & 0 & 0 & -1 & 1 & 0 \\    
+0 & 1 & 0 & -1 & 0 & 1 \\    
+0 & 0 & 1 & -1 & 0 & 0\\    
+0 & 0 & 0 & 0 & 0  & 0\\    
+0 & 0 & 0 & 0 & 0 & 0 \\    
+\end{pmatrix} 
+$
+
+Общее решение: $X = \begin{pmatrix}
+    x_4 - x_5 \\ 
+    x_4 - x_6 \\
+    x_4 \\
+    x_5 \\ 
+    x_6 \\
+\end{pmatrix}$
+
+ФСР: $ \{(1, 1, 1, 0, 0)^T, (-1, 0, 0, 1, 0)^T, (0, -1, 0, 0, 0, 1)^T \} $
+
+\end{quote}
+
+\end{document}

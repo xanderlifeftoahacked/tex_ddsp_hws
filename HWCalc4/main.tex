@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{mathtools} % for \mathclap macro
+\usepackage{quoting}
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{МатАн ДЗ №4}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+\textsf{\textbf{(a)}}
+\[\lim\limits_{n \to \infty} \frac{3n^2 + 2n - 1}{3 - n - 4n^2} = \lim\limits_{n \to \infty} \frac{3 + \overbrace{\frac{2}{n} - \frac{1}{n^2}}^{\text{б.м.}}}{\underbrace{\frac{3}{n^2} - \frac{1}{n}}_{\text{б.м.}
+} - 4} = \boxed{- \frac{3}{4}} \]
+
+
+\textsf{\textbf{(b)}}
+\[
+\lim\limits_{n \to \infty} n - \frac{3}{\frac{3}{n} - \frac{3}{n^2} + \frac{1}{n^3}} = 
+\lim\limits_{n \to \infty} \frac{3 - \frac{3}{n} + \frac{1}{n^2} - 3}{\frac{3}{n} - \frac{3}{n^2} + \frac{1}{n^3}} = \lim\limits_{n \to \infty} \frac{-3 + \overbrace{\frac{1}{n}}^{\text{б.м.}}}{3 - \underbrace{\frac{3}{n} + \frac{1}{n^2}}_{\text{б.м.}}} = \boxed{-1}
+\]
+
+\textsf{\textbf{(c)}}
+\begin{center}
+    
+\[
+\lim\limits_{n \to \infty} \frac{2n - \sqrt{4n^2 - 1}}{\sqrt{n^2 + 3} - n} = 
+\lim\limits_{n \to \infty} \frac{(4n^2 - 4n^2 + 1)(\sqrt{n^2 + 3} + n)}{(\sqrt{n^2 + 3} - n)(\sqrt{n^2 + 3} + n)(2n + \sqrt{4n^2 - 1})} = 
+\]
+\[
+\lim\limits_{n \to \infty} \frac{\sqrt{n^2 + 3} + n}{(n^2 + 3 - n^2)(2n + \sqrt{4n^2 - 1})} = 
+\lim\limits_{n \to \infty} \frac{\sqrt{1 + \overbrace{\frac{3}{n^2}}^{\text{б.м.}}} + 1}{3(2 + \sqrt{4 - \underbrace{\frac{1}{n^2}}}_{\text{б.м.}})} = 
+ \frac{2}{12} = \boxed{\frac{1}{6}}
+\]
+\end{center}
+
+\textsf{\textbf{(d)}}
+\begin{center}
+   \[
+   \lim\limits_{n \to \infty} \sqrt[3]{n+1} - \sqrt[3]{n - 1} = 
+   \lim\limits_{n \to \infty} \frac{}{} \sqrt[3]{n+1} - \sqrt[3]{n - 1} = 
+   \lim\limits_{n \to \infty} \sqrt{n}(\sqrt[3]{1+\underbrace{\frac{1}{n}}_{\text{б.м.}}} - \sqrt[3]{1 - \underbrace{\frac{1}{n}}_{\text{б.м.}})} = \lim\limits_{n \to \infty} \sqrt{n} (1 - 1) = \boxed{0}
+   \] 
+\end{center}
+
+\textsf{\textbf{(e)}}
+\begin{center}
+\[
+\lim\limits_{n \to \infty} \frac{10^n + n!}{2^n + (n + 1)!} = 
+\lim\limits_{n \to \infty} \frac{\frac{10^n}{(n + 1)!} + \frac{n!}{n!(n + 1)}}{\frac{2^n}{(n + 1)!} + 1} = \frac{\text{lim б.м. + lim б.м.}}{1 + \text{lim б.м.}} = \boxed{0}
+\]    
+\end{center}
+
+\textsf{\textbf{(f)}}
+\begin{center}
+\[
+\lim\limits_{n \to \infty} \frac{\sqrt[n]{8} - 1}{\sqrt[n]{16} - 1} = \lim\limits_{n \to \infty} \frac{2^{\frac{3}{n}} - 1}{2^{\frac{4}{n}} - 1} = \lim\limits_{n \to \infty} \frac{(2^{\frac{1}{n}} - 1)(2^{\frac{2}{n}} + 2^{\frac{1}{n}} + 1)}{(2^{\frac{2}{n}} - 1)(2^{\frac{2}{n}} + 1)} = \lim\limits_{n \to \infty} \frac{(2^{\frac{1}{n}} - 1)(2^{\frac{2}{n}} + 2^{\frac{1}{n}} + 1)}{(2^{\frac{1}{n}} + 1)(2^{\frac{1}{n}} - 1)(2^{\frac{2}{n}} + 1)} = 
+\]    
+\[
+= \lim\limits_{n \to \infty} \frac{2^{\frac{2}{n}} + 2^{\frac{1}{n}} + 1}{2^{\frac{3}{n}} + 2^{\frac{1}{n}} + 2^{\frac{2}{n}} + 1} =^{(\text{арифм. пред.})}
+\frac{1 + 1 + 1}{1 + 1 + 1 + 1} = \boxed{\frac{3}{4}}
+\]
+
+\end{center}
+\end{document}

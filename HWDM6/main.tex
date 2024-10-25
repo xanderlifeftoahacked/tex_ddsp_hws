@@ -1,0 +1,349 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage{centernot}
+\usepackage{booktabs}
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+
+\let\emptyset\varnothing
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{Дискра ДЗ №6}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+
+
+\textsf{\textbf{1.}}
+\begin{quote}
+Каждая пара ребер имеет общий конец. Под описание подходят:
+\begin{enumerate}
+    \item Графы без ребер
+    \item Графы, где только одно ребро. 
+    \item Графы, в которых два ребра, соединяющих 3 вершины
+    \item Графы, в которых три ребра, соединяющих 3 вершины
+    \item Графы, в которых 4 и более ребер:
+
+    Гипотеза: подойдет под условие только граф, где все ребра выходят из одной вершины (получается, все ребра будут вида $\{i, a\}, \{i, b\}, \{i, c\} ...$, $i \neq a \neq b \neq c ...$)
+
+    Предположим обратное. 
+    
+    Тогда существует какое-то ребро $\{x \neq i, y \neq i\}$, которое имеет общий конец с $\{i, a\}$. Значит $x = a$ или $y = a$. Без потери общности рассмотрим $x = a$:
+
+   По условию, $\{a, y \neq i \}$ должно иметь общий конец и с $\{i, b\}$. Значит $y = b$.
+
+   По-прежнему, по условию, $\{a, b\}$ должен иметь общий конец с $\{i, c \}$. Но это неверно.
+
+   Значит гипотеза верна.
+    
+\end{enumerate}
+\end{quote}
+
+\textsf{\textbf{2.}}
+\begin{quote}
+В графе из $n$ вершин максимум м.б. $\frac{n(n - 1)}{2}$ ребер. Сумма степеней вершин в два раза больше количества ребер. Т.е. в искомом графе 13 ребер.
+
+\begin{center}
+$\frac{n(n - 1)}{2} = 13 \Leftrightarrow n^2 - n - 26 = 0 \Leftrightarrow n = \frac{1 \pm \sqrt{105}}{2}$ 
+\end{center}
+
+Ближайшее, не меньшее корня целое $n$ = 6 (меньшее $n$ взять не можем, т.к. тогда даже в полном графе из $n$ вершин не наберется 13 ребер). Пример такого графа:
+
+\begin{center}
+    
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+
+% Text Node
+\draw (96.67,114.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {A};
+% Text Node
+\draw (124.17,188.83) node [anchor=north west][inner sep=0.75pt]   [align=left] {B\\};
+% Text Node
+\draw (160.33,43.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {C};
+% Text Node
+\draw (275.33,56.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {D};
+% Text Node
+\draw (299.33,135.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {E};
+% Text Node
+\draw (250.67,223.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {F};
+% Connection
+\draw    (106.73,135.67) -- (122.7,184.83) ;
+% Connection
+\draw    (247.67,230.53) -- (139.17,209.57) ;
+% Connection
+\draw    (247.67,226.13) -- (111.67,129.56) ;
+% Connection
+\draw    (249.97,219.67) -- (173.03,64.33) ;
+% Connection
+\draw    (258.09,219.67) -- (279.91,77.67) ;
+% Connection
+\draw    (263.15,219.67) -- (298.35,156.67) ;
+% Connection
+\draw    (135.57,184.83) -- (163.9,64.33) ;
+% Connection
+\draw    (139.17,199.37) -- (272.33,74.1) ;
+% Connection
+\draw    (139.17,204.56) -- (296.33,147.44) ;
+% Connection
+\draw    (111.67,120.25) -- (272.33,68.24) ;
+% Connection
+\draw    (111.67,124.1) -- (296.33,143.23) ;
+% Connection
+\draw    (176.33,58.17) -- (296.33,138.17) ;
+% Connection
+\draw    (301.61,131.67) -- (285.55,77.67) ;
+
+\end{tikzpicture}
+\end{center}
+
+\boxed{\text{Ответ: 6}}
+
+\end{quote}
+
+\textsf{\textbf{3.}}
+\begin{quote}
+(a) Предположим, что такой граф существует. Рассмотрим его без вершины 
+степени 1: это граф из 7 вершин, в котором 22 ребра. Но максимум в графе из 7 вершин м.б. $\frac{7 \cdot 6}{2} = 21$. Значит предположение неверно. 
+
+\boxed{\text{Ответ: нет}}
+
+(b) 
+\begin{center}
+   \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+
+% Text Node
+\draw (109.33,113) node [anchor=north west][inner sep=0.75pt]   [align=left] {A};
+% Text Node
+\draw (100.17,177.5) node [anchor=north west][inner sep=0.75pt]   [align=left] {B\\};
+% Text Node
+\draw (161,188) node [anchor=north west][inner sep=0.75pt]   [align=left] {C};
+% Text Node
+\draw (234.67,113.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {D};
+% Text Node
+\draw (168.67,115) node [anchor=north west][inner sep=0.75pt]   [align=left] {E};
+% Text Node
+\draw (231.33,190.33) node [anchor=north west][inner sep=0.75pt]   [align=left] {F};
+% Connection
+\draw    (113.81,134) -- (108.98,173.5) ;
+% Connection
+\draw    (228.33,193.42) -- (124.33,127.23) ;
+% Connection
+\draw    (228.33,198.55) -- (177,196.82) ;
+% Connection
+\draw    (237.54,186.33) -- (240.46,134.33) ;
+% Connection
+\draw    (115.17,196.5) -- (158,196.5) ;
+% Connection
+\draw    (115.17,191.52) -- (231.67,127.09) ;
+% Connection
+\draw    (124.33,121.8) -- (165.67,123.2) ;
+% Connection
+\draw    (183.67,123.27) -- (231.67,122.07) ;
+
+\end{tikzpicture} 
+\end{center}
+
+\boxed{\text{Ответ: да}}
+\end{quote}
+
+\textsf{\textbf{4.}}
+\begin{quote}
+Возьмем две произвольные вершины ($v_1$, $v_2$), соед. между собой. Если у них есть общий сосед, значит в графе есть клика размера 3. У есть $v_1$ 200 соседей из 398 оставшихся вершин, аналогично с $v_2$. Если бы у них не было общих соседей (все соседи различны), значит в графе было бы \underbrace{200}_{\text{соседи $v_1$}} + \underbrace{200}_{\text{соседи $v_2$}} + \underbrace{2}_{\text{$v_1$ и $v_2$}} = 402 $\neq 400$ вершины. Получается, у $v_1$ и $v_2$ обязательно есть общий сосед (даже два). Т.е. в графе существует клика размера 3. ЧТД.
+\end{quote}
+
+\textsf{\textbf{5.}}
+\begin{quote}
+Рассмотрим слова как узлы сетки, ребра нарисованы длинной пунктирной линией:
+\begin{center}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Grid [id:dp15500335319443082] 
+\draw  [draw opacity=0][dash pattern={on 0.84pt off 2.51pt}] (194.17,72) -- (314.17,72) -- (314.17,192) -- (194.17,192) -- cycle ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (254.17,72) -- (254.17,192) ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (194.17,132) -- (314.17,132) ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (194.17,72) -- (314.17,72) -- (314.17,192) -- (194.17,192) -- cycle ;
+%Shape: Circle [id:dp6420560440265755] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (249.89,192) .. controls (249.89,189.64) and (251.8,187.72) .. (254.17,187.72) .. controls (256.53,187.72) and (258.44,189.64) .. (258.44,192) .. controls (258.44,194.36) and (256.53,196.28) .. (254.17,196.28) .. controls (251.8,196.28) and (249.89,194.36) .. (249.89,192) -- cycle ;
+%Shape: Circle [id:dp9038030708115281] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (249.89,72) .. controls (249.89,69.64) and (251.8,67.72) .. (254.17,67.72) .. controls (256.53,67.72) and (258.44,69.64) .. (258.44,72) .. controls (258.44,74.36) and (256.53,76.28) .. (254.17,76.28) .. controls (251.8,76.28) and (249.89,74.36) .. (249.89,72) -- cycle ;
+%Shape: Circle [id:dp3825970202071012] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (309.89,132) .. controls (309.89,129.64) and (311.8,127.72) .. (314.17,127.72) .. controls (316.53,127.72) and (318.44,129.64) .. (318.44,132) .. controls (318.44,134.36) and (316.53,136.28) .. (314.17,136.28) .. controls (311.8,136.28) and (309.89,134.36) .. (309.89,132) -- cycle ;
+%Shape: Circle [id:dp3968838819884307] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (189.89,132) .. controls (189.89,129.64) and (191.8,127.72) .. (194.17,127.72) .. controls (196.53,127.72) and (198.44,129.64) .. (198.44,132) .. controls (198.44,134.36) and (196.53,136.28) .. (194.17,136.28) .. controls (191.8,136.28) and (189.89,134.36) .. (189.89,132) -- cycle ;
+%Shape: Circle [id:dp43184614896290585] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (249.89,132) .. controls (249.89,129.64) and (251.8,127.72) .. (254.17,127.72) .. controls (256.53,127.72) and (258.44,129.64) .. (258.44,132) .. controls (258.44,134.36) and (256.53,136.28) .. (254.17,136.28) .. controls (251.8,136.28) and (249.89,134.36) .. (249.89,132) -- cycle ;
+%Shape: Circle [id:dp55528514382617] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (309.89,72) .. controls (309.89,69.64) and (311.8,67.72) .. (314.17,67.72) .. controls (316.53,67.72) and (318.44,69.64) .. (318.44,72) .. controls (318.44,74.36) and (316.53,76.28) .. (314.17,76.28) .. controls (311.8,76.28) and (309.89,74.36) .. (309.89,72) -- cycle ;
+%Shape: Circle [id:dp28056072151703115] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (309.89,192) .. controls (309.89,189.64) and (311.8,187.72) .. (314.17,187.72) .. controls (316.53,187.72) and (318.44,189.64) .. (318.44,192) .. controls (318.44,194.36) and (316.53,196.28) .. (314.17,196.28) .. controls (311.8,196.28) and (309.89,194.36) .. (309.89,192) -- cycle ;
+%Shape: Circle [id:dp10526565149164113] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (189.89,192) .. controls (189.89,189.64) and (191.8,187.72) .. (194.17,187.72) .. controls (196.53,187.72) and (198.44,189.64) .. (198.44,192) .. controls (198.44,194.36) and (196.53,196.28) .. (194.17,196.28) .. controls (191.8,196.28) and (189.89,194.36) .. (189.89,192) -- cycle ;
+%Shape: Circle [id:dp9556507093525687] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (189.89,72) .. controls (189.89,69.64) and (191.8,67.72) .. (194.17,67.72) .. controls (196.53,67.72) and (198.44,69.64) .. (198.44,72) .. controls (198.44,74.36) and (196.53,76.28) .. (194.17,76.28) .. controls (191.8,76.28) and (189.89,74.36) .. (189.89,72) -- cycle ;
+%Straight Lines [id:da011924648664239146] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 31 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (194.17,72) -- (314.17,192) ;
+%Straight Lines [id:da9020666141023456] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 31 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (194.17,192) -- (314.17,72) ;
+%Straight Lines [id:da17075555561154543] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (194.17,132) -- (254.17,192) ;
+%Straight Lines [id:da16088726824747213] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (254.17,72) -- (314.17,132) ;
+%Straight Lines [id:da2639276672646075] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (254.17,192) -- (314.17,132) ;
+%Straight Lines [id:da2867811157294369] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (194.17,132) -- (254.17,72) ;
+
+% Text Node
+\draw (245.44,131.67) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i, j)}};
+% Text Node
+\draw (319.17,181) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i + 1, j - 1)}};
+% Text Node
+\draw (237.67,196) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i, j - 1)}};
+% Text Node
+\draw (319.67,122) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i + \ 1, j)}};
+% Text Node
+\draw (319.67,62) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i + 1, j + 1)}};
+% Text Node
+\draw (234.83,49.17) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i, j + 1)}};
+% Text Node
+\draw (138.17,61.2) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i - 1, j + 1)}};
+% Text Node
+\draw (155.23,120.94) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i - 1, j)}};
+% Text Node
+\draw (139.17,181.61) node [anchor=north west][inner sep=0.75pt]   [align=left] {{\scriptsize (i - 1, j - 1)}};
+
+
+\end{tikzpicture}
+\end{center}
+Если рассматривать такой участок из 9 'соседних' слов, то на нем слова лежат в двух компонентах связности. Мы можем добавлять к нему такие же участки сверху и справа, и в графе по-прежнему будет две компоненты связности:
+
+\begin{center}
+   \begin{tikzpicture}[x=0.5pt,y=0.5pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Grid [id:dp15500335319443082] 
+\draw  [draw opacity=0][dash pattern={on 0.84pt off 2.51pt}] (146.17,159) -- (266.17,159) -- (266.17,279) -- (146.17,279) -- cycle ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (206.17,159) -- (206.17,279) ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (146.17,219) -- (266.17,219) ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (146.17,159) -- (266.17,159) -- (266.17,279) -- (146.17,279) -- cycle ;
+%Shape: Circle [id:dp6420560440265755] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (201.89,279) .. controls (201.89,276.64) and (203.8,274.72) .. (206.17,274.72) .. controls (208.53,274.72) and (210.44,276.64) .. (210.44,279) .. controls (210.44,281.36) and (208.53,283.28) .. (206.17,283.28) .. controls (203.8,283.28) and (201.89,281.36) .. (201.89,279) -- cycle ;
+%Shape: Circle [id:dp9038030708115281] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (201.89,159) .. controls (201.89,156.64) and (203.8,154.72) .. (206.17,154.72) .. controls (208.53,154.72) and (210.44,156.64) .. (210.44,159) .. controls (210.44,161.36) and (208.53,163.28) .. (206.17,163.28) .. controls (203.8,163.28) and (201.89,161.36) .. (201.89,159) -- cycle ;
+%Shape: Circle [id:dp3825970202071012] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,219) .. controls (261.89,216.64) and (263.8,214.72) .. (266.17,214.72) .. controls (268.53,214.72) and (270.44,216.64) .. (270.44,219) .. controls (270.44,221.36) and (268.53,223.28) .. (266.17,223.28) .. controls (263.8,223.28) and (261.89,221.36) .. (261.89,219) -- cycle ;
+%Shape: Circle [id:dp3968838819884307] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (141.89,219) .. controls (141.89,216.64) and (143.8,214.72) .. (146.17,214.72) .. controls (148.53,214.72) and (150.44,216.64) .. (150.44,219) .. controls (150.44,221.36) and (148.53,223.28) .. (146.17,223.28) .. controls (143.8,223.28) and (141.89,221.36) .. (141.89,219) -- cycle ;
+%Shape: Circle [id:dp43184614896290585] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (201.89,219) .. controls (201.89,216.64) and (203.8,214.72) .. (206.17,214.72) .. controls (208.53,214.72) and (210.44,216.64) .. (210.44,219) .. controls (210.44,221.36) and (208.53,223.28) .. (206.17,223.28) .. controls (203.8,223.28) and (201.89,221.36) .. (201.89,219) -- cycle ;
+%Shape: Circle [id:dp55528514382617] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,159) .. controls (261.89,156.64) and (263.8,154.72) .. (266.17,154.72) .. controls (268.53,154.72) and (270.44,156.64) .. (270.44,159) .. controls (270.44,161.36) and (268.53,163.28) .. (266.17,163.28) .. controls (263.8,163.28) and (261.89,161.36) .. (261.89,159) -- cycle ;
+%Shape: Circle [id:dp28056072151703115] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,279) .. controls (261.89,276.64) and (263.8,274.72) .. (266.17,274.72) .. controls (268.53,274.72) and (270.44,276.64) .. (270.44,279) .. controls (270.44,281.36) and (268.53,283.28) .. (266.17,283.28) .. controls (263.8,283.28) and (261.89,281.36) .. (261.89,279) -- cycle ;
+%Shape: Circle [id:dp10526565149164113] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (141.89,279) .. controls (141.89,276.64) and (143.8,274.72) .. (146.17,274.72) .. controls (148.53,274.72) and (150.44,276.64) .. (150.44,279) .. controls (150.44,281.36) and (148.53,283.28) .. (146.17,283.28) .. controls (143.8,283.28) and (141.89,281.36) .. (141.89,279) -- cycle ;
+%Shape: Circle [id:dp9556507093525687] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (141.89,159) .. controls (141.89,156.64) and (143.8,154.72) .. (146.17,154.72) .. controls (148.53,154.72) and (150.44,156.64) .. (150.44,159) .. controls (150.44,161.36) and (148.53,163.28) .. (146.17,163.28) .. controls (143.8,163.28) and (141.89,161.36) .. (141.89,159) -- cycle ;
+%Straight Lines [id:da011924648664239146] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 31 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (146.17,159) -- (266.17,279) ;
+%Straight Lines [id:da9020666141023456] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 31 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (146.17,279) -- (266.17,159) ;
+%Straight Lines [id:da17075555561154543] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (146.17,219) -- (206.17,279) ;
+%Straight Lines [id:da16088726824747213] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (206.17,159) -- (266.17,219) ;
+%Straight Lines [id:da2639276672646075] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (206.17,279) -- (266.17,219) ;
+%Straight Lines [id:da2867811157294369] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (146.17,219) -- (206.17,159) ;
+%Shape: Grid [id:dp07510168989195298] 
+\draw  [draw opacity=0][dash pattern={on 0.84pt off 2.51pt}] (266.17,158.97) -- (386.17,158.97) -- (386.17,278.97) -- (266.17,278.97) -- cycle ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (326.17,158.97) -- (326.17,278.97) ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (266.17,218.97) -- (386.17,218.97) ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (266.17,158.97) -- (386.17,158.97) -- (386.17,278.97) -- (266.17,278.97) -- cycle ;
+%Shape: Circle [id:dp3212155458620768] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (321.89,278.97) .. controls (321.89,276.6) and (323.8,274.69) .. (326.17,274.69) .. controls (328.53,274.69) and (330.44,276.6) .. (330.44,278.97) .. controls (330.44,281.33) and (328.53,283.24) .. (326.17,283.24) .. controls (323.8,283.24) and (321.89,281.33) .. (321.89,278.97) -- cycle ;
+%Shape: Circle [id:dp1155066701355032] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (321.89,158.97) .. controls (321.89,156.6) and (323.8,154.69) .. (326.17,154.69) .. controls (328.53,154.69) and (330.44,156.6) .. (330.44,158.97) .. controls (330.44,161.33) and (328.53,163.24) .. (326.17,163.24) .. controls (323.8,163.24) and (321.89,161.33) .. (321.89,158.97) -- cycle ;
+%Shape: Circle [id:dp23832499717487066] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (381.89,218.97) .. controls (381.89,216.6) and (383.8,214.69) .. (386.17,214.69) .. controls (388.53,214.69) and (390.44,216.6) .. (390.44,218.97) .. controls (390.44,221.33) and (388.53,223.24) .. (386.17,223.24) .. controls (383.8,223.24) and (381.89,221.33) .. (381.89,218.97) -- cycle ;
+%Shape: Circle [id:dp43027147850949876] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,218.97) .. controls (261.89,216.6) and (263.8,214.69) .. (266.17,214.69) .. controls (268.53,214.69) and (270.44,216.6) .. (270.44,218.97) .. controls (270.44,221.33) and (268.53,223.24) .. (266.17,223.24) .. controls (263.8,223.24) and (261.89,221.33) .. (261.89,218.97) -- cycle ;
+%Shape: Circle [id:dp20109347951408818] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (321.89,218.97) .. controls (321.89,216.6) and (323.8,214.69) .. (326.17,214.69) .. controls (328.53,214.69) and (330.44,216.6) .. (330.44,218.97) .. controls (330.44,221.33) and (328.53,223.24) .. (326.17,223.24) .. controls (323.8,223.24) and (321.89,221.33) .. (321.89,218.97) -- cycle ;
+%Shape: Circle [id:dp5981261889339616] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (381.89,158.97) .. controls (381.89,156.6) and (383.8,154.69) .. (386.17,154.69) .. controls (388.53,154.69) and (390.44,156.6) .. (390.44,158.97) .. controls (390.44,161.33) and (388.53,163.24) .. (386.17,163.24) .. controls (383.8,163.24) and (381.89,161.33) .. (381.89,158.97) -- cycle ;
+%Shape: Circle [id:dp023451822582679638] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (381.89,278.97) .. controls (381.89,276.6) and (383.8,274.69) .. (386.17,274.69) .. controls (388.53,274.69) and (390.44,276.6) .. (390.44,278.97) .. controls (390.44,281.33) and (388.53,283.24) .. (386.17,283.24) .. controls (383.8,283.24) and (381.89,281.33) .. (381.89,278.97) -- cycle ;
+%Shape: Circle [id:dp3142813988681149] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,278.97) .. controls (261.89,276.6) and (263.8,274.69) .. (266.17,274.69) .. controls (268.53,274.69) and (270.44,276.6) .. (270.44,278.97) .. controls (270.44,281.33) and (268.53,283.24) .. (266.17,283.24) .. controls (263.8,283.24) and (261.89,281.33) .. (261.89,278.97) -- cycle ;
+%Shape: Circle [id:dp40820061818859743] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,158.97) .. controls (261.89,156.6) and (263.8,154.69) .. (266.17,154.69) .. controls (268.53,154.69) and (270.44,156.6) .. (270.44,158.97) .. controls (270.44,161.33) and (268.53,163.24) .. (266.17,163.24) .. controls (263.8,163.24) and (261.89,161.33) .. (261.89,158.97) -- cycle ;
+%Straight Lines [id:da5112122463973419] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 31 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (266.17,158.97) -- (386.17,278.97) ;
+%Straight Lines [id:da074796752035308] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 31 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (266.17,278.97) -- (386.17,158.97) ;
+%Straight Lines [id:da5865665742261501] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (266.17,218.97) -- (326.17,278.97) ;
+%Straight Lines [id:da028152842470986927] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (326.17,158.97) -- (386.17,218.97) ;
+%Straight Lines [id:da5142912129376622] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (326.17,278.97) -- (386.17,218.97) ;
+%Straight Lines [id:da3321721808826382] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (266.17,218.97) -- (326.17,158.97) ;
+%Shape: Grid [id:dp49171343502877285] 
+\draw  [draw opacity=0][dash pattern={on 0.84pt off 2.51pt}] (146.17,38.97) -- (266.17,38.97) -- (266.17,158.97) -- (146.17,158.97) -- cycle ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (206.17,38.97) -- (206.17,158.97) ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (146.17,98.97) -- (266.17,98.97) ; \draw  [color={rgb, 255:red, 208; green, 2; blue, 27 }  ,draw opacity=0.5 ][dash pattern={on 0.84pt off 2.51pt}] (146.17,38.97) -- (266.17,38.97) -- (266.17,158.97) -- (146.17,158.97) -- cycle ;
+%Shape: Circle [id:dp2256095677406621] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (201.89,158.97) .. controls (201.89,156.6) and (203.8,154.69) .. (206.17,154.69) .. controls (208.53,154.69) and (210.44,156.6) .. (210.44,158.97) .. controls (210.44,161.33) and (208.53,163.24) .. (206.17,163.24) .. controls (203.8,163.24) and (201.89,161.33) .. (201.89,158.97) -- cycle ;
+%Shape: Circle [id:dp988943567199771] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (201.89,38.97) .. controls (201.89,36.6) and (203.8,34.69) .. (206.17,34.69) .. controls (208.53,34.69) and (210.44,36.6) .. (210.44,38.97) .. controls (210.44,41.33) and (208.53,43.24) .. (206.17,43.24) .. controls (203.8,43.24) and (201.89,41.33) .. (201.89,38.97) -- cycle ;
+%Shape: Circle [id:dp46954410025824933] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,98.97) .. controls (261.89,96.6) and (263.8,94.69) .. (266.17,94.69) .. controls (268.53,94.69) and (270.44,96.6) .. (270.44,98.97) .. controls (270.44,101.33) and (268.53,103.24) .. (266.17,103.24) .. controls (263.8,103.24) and (261.89,101.33) .. (261.89,98.97) -- cycle ;
+%Shape: Circle [id:dp43672370305626884] 
+\draw  [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ,fill opacity=1 ] (141.89,98.97) .. controls (141.89,96.6) and (143.8,94.69) .. (146.17,94.69) .. controls (148.53,94.69) and (150.44,96.6) .. (150.44,98.97) .. controls (150.44,101.33) and (148.53,103.24) .. (146.17,103.24) .. controls (143.8,103.24) and (141.89,101.33) .. (141.89,98.97) -- cycle ;
+%Shape: Circle [id:dp44057291163073664] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (201.89,98.97) .. controls (201.89,96.6) and (203.8,94.69) .. (206.17,94.69) .. controls (208.53,94.69) and (210.44,96.6) .. (210.44,98.97) .. controls (210.44,101.33) and (208.53,103.24) .. (206.17,103.24) .. controls (203.8,103.24) and (201.89,101.33) .. (201.89,98.97) -- cycle ;
+%Shape: Circle [id:dp9228666708500012] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,38.97) .. controls (261.89,36.6) and (263.8,34.69) .. (266.17,34.69) .. controls (268.53,34.69) and (270.44,36.6) .. (270.44,38.97) .. controls (270.44,41.33) and (268.53,43.24) .. (266.17,43.24) .. controls (263.8,43.24) and (261.89,41.33) .. (261.89,38.97) -- cycle ;
+%Shape: Circle [id:dp9449897446202401] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (261.89,158.97) .. controls (261.89,156.6) and (263.8,154.69) .. (266.17,154.69) .. controls (268.53,154.69) and (270.44,156.6) .. (270.44,158.97) .. controls (270.44,161.33) and (268.53,163.24) .. (266.17,163.24) .. controls (263.8,163.24) and (261.89,161.33) .. (261.89,158.97) -- cycle ;
+%Shape: Circle [id:dp28892549263520173] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (141.89,158.97) .. controls (141.89,156.6) and (143.8,154.69) .. (146.17,154.69) .. controls (148.53,154.69) and (150.44,156.6) .. (150.44,158.97) .. controls (150.44,161.33) and (148.53,163.24) .. (146.17,163.24) .. controls (143.8,163.24) and (141.89,161.33) .. (141.89,158.97) -- cycle ;
+%Shape: Circle [id:dp7528085084175923] 
+\draw  [color={rgb, 255:red, 255; green, 0; blue, 0 }  ,draw opacity=1 ][fill={rgb, 255:red, 255; green, 0; blue, 0 }  ,fill opacity=1 ] (141.89,38.97) .. controls (141.89,36.6) and (143.8,34.69) .. (146.17,34.69) .. controls (148.53,34.69) and (150.44,36.6) .. (150.44,38.97) .. controls (150.44,41.33) and (148.53,43.24) .. (146.17,43.24) .. controls (143.8,43.24) and (141.89,41.33) .. (141.89,38.97) -- cycle ;
+%Straight Lines [id:da26222548962167225] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 31 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (146.17,38.97) -- (266.17,158.97) ;
+%Straight Lines [id:da04478037299771509] 
+\draw [color={rgb, 255:red, 255; green, 0; blue, 31 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (146.17,158.97) -- (266.17,38.97) ;
+%Straight Lines [id:da9919489748752534] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (146.17,98.97) -- (206.17,158.97) ;
+%Straight Lines [id:da17747026605936822] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (206.17,38.97) -- (266.17,98.97) ;
+%Straight Lines [id:da15568840933613992] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (206.17,158.97) -- (266.17,98.97) ;
+%Straight Lines [id:da5022818867839882] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 4.5pt off 4.5pt}]  (146.17,98.97) -- (206.17,38.97) ;
+
+
+
+
+\end{tikzpicture}
+\end{center}
+
+Таким образом мы можем замостить всю сетку от $(0, 0)$ до $(9, 9)$, компоненты связности сохранятся. 
+
+\boxed{\text{Ответ: 2}}
+\end{quote}
+
+\textsf{\textbf{6.}}
+\begin{quote}
+    Пусть есть два мальчика, которые не являются братьями. Если у них нет общих братьев, то (т.к. эти мальчики по условию имеют по 3 брата) всего у нас 3 + 3 + 2 = 8 $\neq 7$ человек. Значит, у этих мальчиков есть общий брат, значит они сами братья. ЧТД.
+\end{quote}
+
+\end{document}

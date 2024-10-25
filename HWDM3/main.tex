@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage{centernot}
+\usepackage{booktabs}
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+
+\let\emptyset\varnothing
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{Дискра ДЗ №3}}
+    
+    Шамаев Александр    
+\end{Large}
+\vspace{1cm}
+
+
+
+\textsf{\textbf{1.}}
+\begin{quote}
+\begin{quote}
+    a) Всего четных шестизначных чисел: A = $9 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 5$
+
+    Не содержащих "7": B = $8 \cdot 9 \cdot 9 \cdot 9 \cdot 9 \cdot 5$
+
+    Чисел, содержащих хотя бы одну "7": A - B =  \fbox{187560}
+\end{quote}
+
+\begin{quote}
+
+    b) Всего четных шестизначных чисел: A = $9 \cdot 10 \cdot 10 \cdot 10 \cdot 10 \cdot 5$
+
+    Не содержащих "8": B = $8 \cdot 9 \cdot 9 \cdot 9 \cdot 9 \cdot 4$
+
+    Чисел, содержащих хотя бы одну "8": A - B = \fbox{240048}
+\end{quote}
+\end{quote}
+
+\textsf{\textbf{2.}}
+\begin{quote}
+    На каждую позицию в слове у нас есть 3 вида буквы. 
+    
+    Всего слов длины $n$ будет A $ = 3^n$. 
+    
+    Всего слов из одного вида букв будет B = 3.
+    
+    Слов, содержащих ровно два вида букв будет C $ =(2^n - 2) \cdot C_{3}^{2} = 3 \cdot 2^n - 6$ 
+    
+    (вычитаем два варианта, когда все буквы одинаковы, умножаем на кол-во способов выбрать два вида букв)
+
+    Тогда слов, содержащих все три буквы будет $A - B - C = \fbox{3^n - 3 \cdot 2^n + 3}$
+    
+\end{quote}
+
+\textsf{\textbf{3.}}
+\begin{quote}
+    $10^6 = 100^3 = 1000^2$
+
+    В последовательности содержится 10 шестых степеней ($1^6, 2^6 , ... , 10^6)$ - кубов и квадратов одновременно, 
+    100 кубов, 1000 квадратов. Четвертые степени являются квадратами, отдельно считать их не нужно. 
+    
+    Тогда искомых чисел будет (вычитаем 10, т.к. посчитали шестые степени два раза, можно сказать по принципу включений/исключений):
+    
+    $10^6 - (100 + 1000 - 10) = \fbox{998910}$
+\end{quote}
+
+\textsf{\textbf{4.}}
+\begin{quote}
+  Чисел, кратных трем будет $\frac{33000}{3} = 11000 \quad (1 \cdot 3 , 2 \cdot 3, ... , 11000 \cdot 3)$
+  
+  Кратных пяти - $\frac{33000}{5} = 6600$
+  
+  Кратных 11 - $\frac{33000}{11} = 3000$
+
+  Чисел, кратных пяти и трем - $\frac{33000}{15} = 2200$
+  
+  Чисел, кратных пяти и 11 - $\frac{33000}{55} = 600$
+  
+  Чисел, кратных трем и 11 - $\frac{33000}{33} = 1000$
+  
+  Чисел, кратных трем, пяти и 11 - $\frac{33000}{165} = 200$
+
+  Тогда искомых чисел будет (можно сказать, по принципу включений/исключений)
+  
+  $33000 - 11000 - 6600 - 3000 + 2200 + 600 + 1000 - 200 = \fbox{16000}$
+\end{quote}
+\end{document}

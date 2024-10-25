@@ -1,0 +1,183 @@
+
+\documentclass{article}
+\usepackage{ucs} 
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8  
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{geometry}
+\usepackage{quoting}
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage[a4paper, left=0.5cm, right=0.5cm, top=0cm, bottom=0cm]{geometry}
+\begin{document}
+\setlength{\parindent}{0pt}
+\begin{Large}
+    \textsf{\textbf{ДемоКР 1 МатАн: найди ошибку}}
+    
+\end{Large}
+\vspace{1cm}
+
+\textbf{\textsf{(1)}}
+\begin{quote}
+    a) 
+    \begin{quote}
+        
+    База: 0 = 0  - верно
+    
+    Пусть верно для $n = k$: $1 \cdot 2 + 2 \cdot 3 + ... + (k - 1) \cdot k = \frac{(k - 1)k(k + 1)}{3}$
+    
+    Докажем шаг $k \rightarrow k + 1$: $\underbrace{1 \cdot 2 + 2 \cdot 3 + ... + (k - 1)k}_{= \frac{(k - 1)k(k + 1)}{3}} + k(k + 1) = \frac{(k - 1)k(k + 1) + 3k(k + 1)}{3} = $
+    $= \frac{k(k + 1)(k - 1 + 3)}{3} =  \frac{((k + 1) - 1)(k + 1)((k + 1) + 1)}{3}$ $\quad$ ЧТД
+    \end{quote}
+
+    b) 
+    \begin{quote}
+    
+        База: $7 + 12 + 17 \equiv 0 \mod 18$ - верно
+        
+        Пусть верно для $n = k$: $7^k + 12k + 17 \equiv 0 \mod 18$
+        
+        Докажем шаг $k \rightarrow k + 1$: $7 \cdot 7^k + 12 + 12k + 17 = \underbrace{7^k + 12k + 17}_{\equiv 0 \mod 18} + 6 \cdot 7^k + 12$
+
+        Осталось доказать, что $6 \cdot 7^k + 12 \equiv 0 \mod 18$
+        
+        База: $42 + 12 \equiv 0 \mod 18$
+
+        Пусть верно для $n = k$: $6 \cdot 7^k + 12 \equiv 0 \mod 18$
+
+        Докажем шаг $k \rightarrow k + 1$: $7 \cdot 6 \cdot 7^k + 12 = \underbrace{36 \cdot 7^k}_{\equiv 0 \mod 18} + \underbrace{6 \cdot 7^k + 12}_{\equiv 0 \mod 18}$
+
+        ЧТД
+    \end{quote}
+    
+    
+    \end{quote} 
+
+    
+\textbf{\textsf{(2)}}
+
+\begin{quote}
+    
+Второе слагаемое = $C^1_n \cdot (\sqrt[5]{x^2})^{n - 1} \cdot \frac{-1}{2 \cdot \sqrt[6]{x}}$ $\quad$ коэф. = $C^1_n \cdot \frac{-1}{2} = \frac{-n}{2}$
+
+Третье слагаемое = $C^2_n \cdot (\sqrt[5]{x^2})^{n - 2} \cdot \frac{-1}{2 \cdot \sqrt[6]{x}}^2$ $\quad$ коэф. = $C^2_n \cdot \frac{1}{2^2} = \frac{n(n - 1)}{8}$
+
+$\frac{n(n - 1)}{8} - \frac{n}{2} = \frac{51}{2} \Leftrightarrow  n^2 - n - 4n = 204 \Leftrightarrow (n + 12)(n - 17) = 0$
+
+$n \in \mathbb{N} \Rightarrow n = 17$ 
+
+Найдем при каком $k$, член не будет содержать $x$ (пока что опустим коэф.): 
+
+$(x^{\frac{2}{5}})^{17 - k} \cdot (x^{-\frac{1}{6}})^k = 1 \Leftrightarrow$
+$\frac{2}{5} \cdot (17 - k) = -(-\frac{1}{6}) \cdot k \Leftrightarrow$
+$204 - 12k = 5k \Leftrightarrow$
+$k = 12$
+
+Теперь найдем коэфицент при этом члене: $C^{12}_{17} \cdot (-\frac{1}{2})^{12} = C^{5}_{17} \cdot \frac{1}{2^{12}} = \frac{17 \cdot 16 \cdot 15 \cdot 14 \cdot 13}{2 \cdot 3 \cdot 4 \cdot 5 \cdot 2^{12}} = \ = \boxed{\frac{1547}{1024}}$
+\end{quote}
+
+\textbf{\textsf{(3)}}
+\begin{quote}
+(a)
+\begin{quote}
+    
+$\forall C > 0\ \exists n: \ |a_n| > C  $
+
+$|2n^2 - n - 1| \geq 2n^2 - n - 1 > n^2 - 4n - 4 > C$
+
+$(n - 2)^2 > C$
+
+$|n - 2| > \sqrt{C}$
+
+$n > \sqrt{C} + 2$
+
+Неограниченность доказана.
+\end{quote}
+(b)
+\begin{quote}
+$\forall C > 0\ \exists n: \ |b_n| > C  $
+
+$|\frac{n! + n - 3^n}{n^2 + 7n}| \geq \frac{n! + n - 3^n}{n^2 + 7n} > \frac{n! - 3^n} {8n^2} > C$
+
+$n! - 3^n - 8Cn^2 > n! - 3^n - 8C\cdot3^n = n! - 3^n(8C + 1) \overset{n > 9}{>} n! - (n - 1)!(8C + 1) = \ = (n-1)!(n - 8C - 1) > 0$
+
+\begin{cases}
+    $
+   n > 9 \\ 
+   n > 8C + 1
+    $
+\end{cases}
+
+Неограниченость доказана.
+\end{quote}
+\end{quote}
+
+\textbf{\textsf{(4)}}
+\begin{quote}
+    (a) 
+    \begin{quote}
+    $\forall \varepsilon > 0 \ \exists N \ \forall n > N: |\frac{n^2}{2n^2 + 3n + 1} - \frac{1}{2}| < \varepsilon$
+
+    $|\frac{2n^2 - 2n^2 - 3n - 1}{4n^2 + 6n + 2}| = \frac{3 n + 1}{4n^2 + 6n + 2} < \frac{4n}{4n^2}$
+
+    $\frac{1}{n} < \varepsilon \Leftrightarrow n > \frac{1}{\varepsilon}$
+    
+    Сходимость доказана. $(N = \left\lceil{\frac{1}{\varepsilon}}\right\rceil)$ 
+    \end{quote}
+
+    (b) 
+    \begin{quote}
+    $\forall \varepsilon > 0 \ \exists N \ \forall n > N: |\frac{\sin(n^2 + 2n - 1)}{n^3 - 3n + 2}| < \varepsilon$
+
+    $|\frac{\sin(n^2 + 2n - 1)}{n^3 - 3n + 2}| < \frac{1}{n^3 - 3n + 2} < \frac{1}{n^3 - 3n} < \frac{n}{n^3 - 3n} = \frac{1}{n^2 - 3} < \varepsilon$
+
+$
+\begin{cases}
+    n^2 - 3 > \frac{1}{\varepsilon} \\
+    n > 2 \\
+\end{cases}
+$
+    Сходимость доказана $(N = \max (3, \left\lceil{\sqrt{\frac{1}{\varepsilon} + 3}}\right\rceil))$.
+    \end{quote}
+\end{quote}
+
+\textbf{\textsf{(5)}}
+\begin{quote}
+    
+(a)
+\begin{quote}
+$
+\lim\limits_{n \to \infty}(\frac{n^2 + 2n - 1}{2n - 7} - \frac{2n^2 + 1}{4n - 1}) = 
+\lim\limits_{n \to \infty}\frac{n + 2 - \frac{1}{n}}{2 - \frac{7}{n}} - \lim\limits_{n \to \infty}\frac{2n + \frac{1}{n}}{4 - \frac{1}{n}} = \lim\limits_{n \to \infty}\frac{n + 2}{2} - \lim\limits_{n \to \infty}\frac{2n}{4} = \ =\lim\limits_{n \to \infty}\frac{n}{2} - \lim\limits_{n \to \infty}\frac{n}{2} + 1 = \boxed{1}
+$
+\end{quote}
+
+(b)
+\begin{quote}
+$
+\lim\limits_{n \to \infty}(\sqrt{n + \sqrt{n + \sqrt{n}}} - \sqrt{n}) = \lim\limits_{n \to \infty} \frac{\sqrt{n + \sqrt{n}}}{\sqrt{n + \sqrt{n + \sqrt{n}}} + \sqrt{n}} = \lim\limits_{n \to \infty}\frac{\sqrt {1 + \frac{\sqrt{n}}{n}}}{\sqrt{1 + \sqrt{\frac{1}{n} + \sqrt{\frac{n}{n^4}}}} + 1} = \ = \frac{\sqrt{1 + \lim \text{б.м.}}}{\sqrt{1 + \sqrt{\lim \text{б.м.} + \sqrt{\lim \text{б.м.}}}} + 1} = \boxed{\frac{1}{2}}
+$
+\end{quote}
+
+(c)
+
+\begin{quote}
+\[
+\lim \limits_{n \to \infty} \frac{\sqrt[n]{4n} + (1 + \frac{1}{2n})^n}{3 \sqrt[n]{4} - 2} = \lim \limits_{n \to \infty} \frac{\sqrt[n]{4}\sqrt[n]{n} + (1 + \frac{1}{2n})^n}{3 \sqrt[n]{4} - 2} = \frac{1 \cdot 1 + \lim\limits_{n \to \infty} (1 + \frac{1}{2n})^n}{3 \cdot 1 - 2} = 1 + \lim\limits_{t \to \infty} (1 + \frac{1}{t})^\frac{t}{2} = \boxed{1 + \sqrt{e}}
+\]
+\end{quote}
+\end{quote}
+
+\textbf{\textsf{6}}
+\begin{quote}
+    $a_n = \sqrt[n]{\frac{2n^3 - 7n + 3}{2n + 11}}$, для $n > 5$ числ. точно больше знаменателя, т.е. $a_{n > 5} > 1$
+    
+    $b_n = \{ -1, -1, -1, -1, -1, 1, 1, 1 ... \}$, предел $b_n = 1$
+
+    $\sqrt[n]{\frac{2n^3 - 7n + 3}{2n + 11}} < \sqrt[n]{\frac{2n^3 + 3n}{2n}} = \sqrt[n]{\frac{2n^2 + 3}{2}} = \sqrt[n]{n^2 + \frac{3}{2}} < \sqrt[n]{n^2 + 2n} = \sqrt[n]{n} \sqrt[n]{n + 2} < \sqrt[n]{n} \sqrt[n]{3n} = \sqrt[n]{n} \sqrt[n]{n} \sqrt[n]{3} = c_n $, предел $c_n = 1$
+
+    $b_n \leq a_n \leq c_n$ Тогда, по т. о зажатой послед., \boxed{\text{предел }$a_n = 1$}
+\end{quote}
+\end{document}
